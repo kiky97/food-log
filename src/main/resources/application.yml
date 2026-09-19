@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: food-log
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/foodlog}
+      auto-index-creation: true
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 16MB
+
+app:
+  zone: Europe/Zurich
+  seed-sample-data: true
+  # mock | gemini
+  stt:
+    provider: ${STT_PROVIDER:mock}
+  llm:
+    provider: ${LLM_PROVIDER:mock}
+  match:
+    auto-threshold: 0.85
+    min-threshold: 0.6
+    max-candidates: 3
+  gemini:
+    api-key: ${GEMINI_API_KEY:}
+    base-url: https://generativelanguage.googleapis.com
+    model: ${GEMINI_MODEL:gemini-2.5-flash}
+    connect-timeout: 5s
+    read-timeout: 30s
+    max-attempts: 3
+    retry-backoff: 500ms
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

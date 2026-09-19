@@ -1,0 +1,46 @@
+id,name_en,name_de,name_zh,aliases,category,kcal,protein_g,fat_g,carb_g,fiber_g,sugar_g,salt_g,piece_g,slice_g,cup_g,bowl_g,serving_g
+S001,Apple,Apfel,苹果,apples,Fruit,52,0.3,0.2,13.8,2.4,10.4,0,180,,,,
+S002,Banana,Banane,香蕉,bananas,Fruit,89,1.1,0.3,22.8,2.6,12.2,0,120,,,,
+S003,Orange,Orange,橙子,oranges,Fruit,47,0.9,0.1,11.8,2.4,9.4,0,150,,,,
+S004,Strawberry,Erdbeere,草莓,strawberries,Fruit,32,0.7,0.3,7.7,2,4.9,0,12,,150,,
+S005,Grapes,Trauben,葡萄,grape,Fruit,69,0.7,0.2,18.1,0.9,15.5,0,5,,150,,
+S006,Avocado,Avocado,牛油果,avocados,Fruit,160,2,14.7,8.5,6.7,0.7,0,170,,,,
+S007,Tomato,Tomate,番茄,tomatoes;西红柿,Vegetable,18,0.9,0.2,3.9,1.2,2.6,0,120,,,,
+S008,Cucumber,Gurke,黄瓜,cucumbers,Vegetable,15,0.7,0.1,3.6,0.5,1.7,0,300,,,,
+S009,Carrot,Karotte,胡萝卜,carrots;Rüebli,Vegetable,41,0.9,0.2,9.6,2.8,4.7,0,60,,,,
+S010,Broccoli,Brokkoli,西兰花,,Vegetable,34,2.8,0.4,6.6,2.6,1.7,0,,,90,,
+S011,Potato boiled,Kartoffel gekocht,煮土豆,potato;potatoes;boiled potato,Vegetable,86,1.7,0.1,20,1.8,0.9,0.01,150,,,,
+S012,Rice white cooked,Reis weiss gekocht,米饭,rice;white rice;cooked rice;steamed rice,Cereal,130,2.7,0.3,28.2,0.4,0.1,0,,,158,200,
+S013,Rice brown cooked,Vollkornreis gekocht,糙米饭,brown rice,Cereal,111,2.6,0.9,23,1.8,0.4,0,,,195,200,
+S014,Pasta cooked,Teigwaren gekocht,意大利面,pasta;spaghetti;noodles,Cereal,158,5.8,0.9,30.9,1.8,0.6,0.01,,,140,250,
+S015,Bread white,Weissbrot,白面包,bread;white bread;toast,Bakery,265,9,3.2,49,2.7,5,1.2,,30,,,
+S016,Bread whole wheat,Vollkornbrot,全麦面包,whole grain bread;wholemeal bread;brown bread,Bakery,247,13,3.4,41,7,6,1.1,,35,,,
+S017,Oatmeal cooked,Haferbrei,燕麦粥,oatmeal;porridge;oats,Cereal,71,2.5,1.5,12,1.7,0.3,0,,,234,250,
+S018,Egg boiled,Ei gekocht,水煮蛋,egg;eggs;boiled egg,Egg,155,12.6,10.6,1.1,0,1.1,0.4,50,,,,
+S019,Egg fried,Spiegelei,煎蛋,fried egg,Egg,196,13.6,15,0.8,0,0.4,0.4,46,,,,
+S020,Milk whole,Vollmilch,全脂牛奶,milk,Dairy,64,3.3,3.6,4.7,0,4.7,0.1,,,244,,200
+S021,Yogurt plain,Naturjoghurt,酸奶,yogurt;yoghurt,Dairy,61,3.5,3.3,4.7,0,4.7,0.1,,,245,,180
+S022,Cheese Emmental,Emmentaler,埃门塔尔奶酪,cheese;swiss cheese,Dairy,380,28.5,29.7,0,0,0,0.6,,30,,,
+S023,Butter,Butter,黄油,,Fat,717,0.9,81.1,0.1,0,0.1,0.02,,,,,10
+S024,Chicken breast cooked,Pouletbrust gekocht,鸡胸肉,chicken;chicken breast;grilled chicken,Meat,165,31,3.6,0,0,0,0.1,120,,,,
+S025,Beef steak cooked,Rindsteak gebraten,牛排,beef;steak,Meat,250,26,15,0,0,0,0.15,200,,,,
+S026,Pork cooked,Schweinefleisch gebraten,猪肉,pork,Meat,242,27,14,0,0,0,0.1,150,,,,
+S027,Salmon cooked,Lachs gekocht,三文鱼,salmon;salmon fillet,Fish,206,22.1,12.4,0,0,0,0.1,150,,,,
+S028,Tuna canned,Thunfisch Dose,金枪鱼罐头,tuna,Fish,116,25.5,0.8,0,0,0,1,,,,,120
+S029,Tofu,Tofu,豆腐,,Legume,76,8.1,4.8,1.9,0.3,0.6,0.02,,,,,100
+S030,Lentils cooked,Linsen gekocht,扁豆,lentils,Legume,116,9,0.4,20.1,7.9,1.8,0,,,198,,
+S031,Almonds,Mandeln,杏仁,almond,Nut,579,21.2,49.9,21.6,12.5,4.4,0,1.2,,,,30
+S032,Peanut butter,Erdnussbutter,花生酱,,Spread,588,25,50,20,6,9,1,,,,,16
+S033,Olive oil,Olivenöl,橄榄油,oil,Fat,884,0,100,0,0,0,0,,,,,
+S034,Chocolate dark,Zartbitterschokolade,黑巧克力,chocolate;dark chocolate,Sweet,546,4.9,31.3,61,7,48,0.02,10,,,,30
+S035,Coffee black,Kaffee schwarz,黑咖啡,coffee;black coffee,Beverage,2,0.3,0,0,0,0,0,,,240,,
+S036,Orange juice,Orangensaft,橙汁,juice,Beverage,45,0.7,0.2,10.4,0.2,8.4,0,,,248,,
+S037,Cola,Cola,可乐,coke;soda,Beverage,42,0,0,10.6,0,10.6,0,,,,,330
+S038,Pizza Margherita,Pizza Margherita,玛格丽特披萨,pizza,Meal,250,10,9,31,2,3,1.6,,107,,,
+S039,Hamburger,Hamburger,汉堡,burger;cheeseburger,Meal,250,13,10,28,1.5,5,1.2,200,,,,
+S040,French fries,Pommes frites,薯条,fries;chips,Meal,312,3.4,15,41,3.8,0.3,0.5,,,117,,120
+S041,Dumplings,Teigtaschen,饺子,dumpling;jiaozi,Meal,190,7,6,26,1.5,1,1,25,,,,
+S042,Fried rice,Gebratener Reis,炒饭,,Meal,163,4,5,25,0.8,0.5,1,,,198,300,
+S043,Salad mixed green,Blattsalat,蔬菜沙拉,salad;green salad,Vegetable,17,1.3,0.2,3.3,1.8,1.4,0.05,,,,150,
+S044,Muesli,Müesli,燕麦片,muesli;granola,Cereal,363,10,6,64,8,12,0.05,,,,,60
+S045,Sushi,Sushi,寿司,sushi roll,Meal,143,5,0.7,29,0.6,3,1,30,,,,
