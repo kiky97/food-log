@@ -12,6 +12,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foodlog.client.gemini.GeminiApi;
+import com.foodlog.client.gemini.TestGeminiApiFactory;
 import com.foodlog.config.AppProperties;
 import com.foodlog.domain.MealType;
 import com.foodlog.exception.ApiException;
