@@ -36,4 +36,10 @@ class RuleBasedEntityExtractionClientTest {
     void returnsNothingForTextWithoutFood() {
         assertThat(client.extract("for lunch")).isEmpty();
     }
+
+    @Test
+    void dropsATrailingBareNumberInsteadOfTreatingItAsFood() {
+        assertThat(client.extract("I had an apple and then 2")).containsExactly(
+                new ExtractedFood("apple", 1, "piece", MealType.UNKNOWN));
+    }
 }

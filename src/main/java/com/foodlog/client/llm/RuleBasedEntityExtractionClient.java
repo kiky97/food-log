@@ -66,7 +66,7 @@ public class RuleBasedEntityExtractionClient implements EntityExtractionClient {
         double quantity = 1;
         boolean hadQuantity = false;
         String first = tokens.get(0);
-        if (tokens.size() > 1 && (NUMBER.matcher(first).matches() || NUMBER_WORDS.containsKey(first))) {
+        if (NUMBER.matcher(first).matches() || NUMBER_WORDS.containsKey(first)) {
             quantity = NUMBER.matcher(first).matches() ? Double.parseDouble(first) : NUMBER_WORDS.get(first);
             hadQuantity = true;
             tokens.remove(0);
