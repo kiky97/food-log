@@ -1,5 +1,8 @@
 # Food Log — AI 语音饮食记录后端
 
+[![CI](https://github.com/kiky97/food-log/actions/workflows/ci.yml/badge.svg)](https://github.com/kiky97/food-log/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 用户用自然语言(语音或文字)说出吃了什么,系统自动转成结构化的饮食记录并计算营养。
 
 ```
@@ -155,7 +158,7 @@ id,name_en,name_de,name_zh,aliases,category,kcal,protein_g,fat_g,carb_g,fiber_g,
 ```
 
 - 单元测试:名称归一化、匹配、份量换算、CSV 解析、Gemini 客户端(用 `MockRestServiceServer` 模拟 HTTP,覆盖重试、非法 JSON、限流)。
-- 集成测试:`FoodLogApiIntegrationTest` 通过 Testcontainers 启动真实 MongoDB,需要 Docker;没有 Docker 时自动跳过。
+- 集成测试:`FoodLogApiIntegrationTest` 通过 Testcontainers 启动真实 MongoDB,需要 Docker;没有 Docker 时**自动跳过而不是失败**(本地没装 Docker 也能跑单元测试)。CI(GitHub Actions 的 ubuntu 镜像自带 Docker)会真正执行这部分测试。
 - `FoodMatcherTest` 里有一组带标注的查询(复数、拼写错误、语序、德文、中文),运行时会打印自动匹配准确率。这个数字只反映**示例库**上的表现,换成完整数据库后需要重新评测。
 
 > Docker Engine 29+ 与 Testcontainers 1.x 默认的 API 版本不兼容,所以 `pom.xml` 里给 Surefire 设置了 `api.version=1.44`。如果你的 Docker 版本低于 25,请删掉这一项。
