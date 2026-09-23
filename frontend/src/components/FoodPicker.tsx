@@ -35,7 +35,8 @@ export function FoodPicker({ candidates, disabled, onPick }: Props) {
     };
   }, [query]);
 
-  const suggested = candidates.filter((c) => !hits.some((h) => h.foodId === c.foodId));
+  /** Search hits already offered as a suggestion chip are dropped so nothing appears twice. */
+  const visibleHits = hits.filter((h) => !candidates.some((c) => c.foodId === h.foodId));
 
   return (
     <div className="picker">
@@ -59,10 +60,10 @@ export function FoodPicker({ candidates, disabled, onPick }: Props) {
         disabled={disabled}
       />
       {searching && <p className="hint">Searching…</p>}
-      {!searching && query.trim().length >= 2 && hits.length === 0 && <p className="hint">No foods found.</p>}
-      {hits.length > 0 && (
+      {!searching && query.trim().length >= 2 && visibleHits.length === 0 && <p className="hint">No foods found.</p>}
+      {visibleHits.length > 0 && (
         <ul className="hits">
-          {hits.map((h) => (
+          {visibleHits.map((h) => (
             <li key={h.foodId}>
               <button type="button" disabled={disabled} onClick={() => onPick(h.foodId)}>
                 <span>{h.name}</span>
@@ -72,7 +73,7 @@ export function FoodPicker({ candidates, disabled, onPick }: Props) {
           ))}
         </ul>
       )}
-      {candidates.length === 0 && hits.length === 0 && query.trim().length < 2 && suggested.length === 0 && (
+      {candidates.length === 0 && visibleHits.length === 0 && query.trim().length < 2 && (
         <p className="hint">Type at least two letters to search.</p>
       )}
     </div>
