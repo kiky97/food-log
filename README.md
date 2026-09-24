@@ -7,13 +7,13 @@
 
 ```
 语音 ─► STT ─► 文本 ─► LLM 实体抽取 ─► 食物匹配 ─► 份量换算 ─► 营养计算 ─► MongoDB
-                         (Gemini,                (模糊匹配 +      (碗/片/个 → 克)
-                          JSON schema 约束)       置信度分级)
+                         (Gemini / Bedrock,      (模糊匹配 +      (碗/片/个 → 克)
+                          结构化输出约束)          置信度分级)
 ```
 
 ## 技术栈
 
-Java 17+ · Spring Boot 3.5 · Spring Web / Validation · Spring Data MongoDB · Gemini API(Google AI Studio)· springdoc(Swagger UI)· JUnit 5 · Testcontainers
+Java 17+ · Spring Boot 3.5 · Spring Web / Validation · Spring Data MongoDB · Gemini API(Google AI Studio)· AWS Bedrock(Converse API + Tool Use)· springdoc(Swagger UI)· JUnit 5 · Testcontainers
 
 ## 快速开始
 
@@ -55,13 +55,30 @@ $env:GEMINI_API_KEY = "你的key"; $env:LLM_PROVIDER = "gemini"; $env:STT_PROVID
 | 环境变量 | 默认值 | 说明 |
 |---|---|---|
 | `GEMINI_API_KEY` | 空 | AI Studio 的 API Key,只通过请求头发送,不会写日志 |
-| `LLM_PROVIDER` | `mock` | `gemini` 或 `mock`,控制实体抽取 |
+| `LLM_PROVIDER` | `mock` | `gemini`、`bedrock` 或 `mock`,控制实体抽取 |
 | `STT_PROVIDER` | `mock` | `gemini` 或 `mock`,控制语音转文字 |
 | `GEMINI_MODEL` | `gemini-2.5-flash` | 模型名 |
 | `MONGODB_URI` | `mongodb://localhost:27017/foodlog` | |
 
-> **Mock 模式的限制**:Mock LLM 只能解析简单英文句子;Mock STT 不能识别真实音频,上传 `.txt` 文件可模拟一段语音。中文、口语化、复杂句子需要用 Gemini。
+> **Mock 模式的限制**:Mock LLM 只能解析简单英文句子;Mock STT 不能识别真实音频,上传 `.txt` 文件可模拟一段语音。中文、口语化、复杂句子需要用 Gemini 或 Bedrock。
 > 语音文件建议用 wav / mp3 / ogg / flac,最大 15MB。
+
+### 接入 AWS Bedrock
+
+`LLM_PROVIDER=bedrock` 时,`BedrockEntityExtractionClient` 通过 Bedrock 的 **Converse API + 强制 Tool Use** 拿结构化输出(等价于 Gemini 那边的 `responseSchema`)。凭证走 AWS 标准的默认凭证链(环境变量 / `~/.aws/credentials` / IAM Role),代码里不存、不读任何 AWS Key。
+
+```powershell
+$env:AWS_ACCESS_KEY_ID = "..."; $env:AWS_SECRET_ACCESS_KEY = "..."
+$env:AWS_REGION = "us-east-1"; $env:LLM_PROVIDER = "bedrock"
+./mvnw.cmd spring-boot:run
+```
+
+| 环境变量 | 默认值 | 说明 |
+|---|---|---|
+| `AWS_REGION` | `us-east-1` | Bedrock 所在区域,需要该区域已开通目标模型的访问权限 |
+| `BEDROCK_MODEL` | `anthropic.claude-3-5-haiku-20241022-v1:0` | 需要支持 Tool Use 的模型(Claude 3 系列等) |
+
+需要先在 AWS 控制台的 Bedrock → Model access 里为对应账号/区域开通该模型的访问权限,否则会收到 `AccessDeniedException`。
 
 ## 前端
 
@@ -134,7 +151,7 @@ repository/   Spring Data 仓库
 exception/    统一错误处理(ProblemDetail)
 ```
 
-STT 与 LLM 都在接口后面,Gemini / Mock 通过配置切换;要换成别的模型,只需再实现一个接口。
+STT 与 LLM 都在接口后面,Gemini / Bedrock / Mock 通过配置切换;要换成别的模型或云平台,只需再实现一个接口。
 
 ## 关于食物数据(重要)
 
@@ -157,7 +174,7 @@ id,name_en,name_de,name_zh,aliases,category,kcal,protein_g,fat_g,carb_g,fiber_g,
 ./mvnw test
 ```
 
-- 单元测试:名称归一化、匹配、份量换算、CSV 解析、Gemini 客户端(用 `MockRestServiceServer` 模拟 HTTP,覆盖重试、非法 JSON、限流)。
+- 单元测试:名称归一化、匹配、份量换算、CSV 解析、`FoodLogService` 全流程(用假仓库,不需要 Docker)、Gemini 客户端(用 `MockRestServiceServer` 模拟 HTTP,覆盖重试、非法 JSON、限流)、Bedrock 客户端(用 Mockito 模拟 `BedrockRuntimeClient`,覆盖 Tool Use 解析、限流重试、网络错误)。
 - 集成测试:`FoodLogApiIntegrationTest` 通过 Testcontainers 启动真实 MongoDB,需要 Docker;没有 Docker 时**自动跳过而不是失败**(本地没装 Docker 也能跑单元测试)。CI(GitHub Actions 的 ubuntu 镜像自带 Docker)会真正执行这部分测试。
 - `FoodMatcherTest` 里有一组带标注的查询(复数、拼写错误、语序、德文、中文),运行时会打印自动匹配准确率。这个数字只反映**示例库**上的表现,换成完整数据库后需要重新评测。
 
@@ -165,7 +182,7 @@ id,name_en,name_de,name_zh,aliases,category,kcal,protein_g,fat_g,carb_g,fiber_g,
 
 ## 已知限制 / 后续可做
 
-- Gemini 的两个实现已用模拟 HTTP 测试,但**没有用真实 Key 端到端验证过**;首次使用请先用一两句话试一遍。
+- Gemini 的两个实现已用模拟 HTTP 测试,Bedrock 实现已用模拟的 SDK 客户端测试,但**都没有用真实凭证端到端验证过**;首次使用请先用一两句话试一遍。
 - 前端的**麦克风录音没有在真实浏览器里验证过**(自动化环境没有麦克风),其余界面流程已用 Mock 后端走通;前端与真实后端的联调也还没做过。
 - 食物匹配是词级模糊匹配,不理解语义(比如"cottage cheese"和"cheese"的区别依赖库里的条目)。可以在低置信度时增加一次让 LLM 从候选中选择的步骤,或改用向量检索。
 - 份量换算是静态表,不会根据"一小碗/一大碗"调整。
