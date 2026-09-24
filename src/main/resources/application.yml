@@ -16,6 +16,7 @@ app:
   # mock | gemini
   stt:
     provider: ${STT_PROVIDER:mock}
+  # mock | gemini | bedrock
   llm:
     provider: ${LLM_PROVIDER:mock}
   match:
@@ -28,6 +29,12 @@ app:
     model: ${GEMINI_MODEL:gemini-2.5-flash}
     connect-timeout: 5s
     read-timeout: 30s
+    max-attempts: 3
+    retry-backoff: 500ms
+  bedrock:
+    # Credentials come from the standard AWS provider chain (env vars, ~/.aws/credentials, or an IAM role) - never put keys here.
+    region: ${AWS_REGION:us-east-1}
+    model: "${BEDROCK_MODEL:anthropic.claude-3-5-haiku-20241022-v1:0}"
     max-attempts: 3
     retry-backoff: 500ms
 

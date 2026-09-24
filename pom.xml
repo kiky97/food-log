@@ -22,6 +22,7 @@
         <springdoc.version>2.8.9</springdoc.version>
         <commons-text.version>1.13.0</commons-text.version>
         <commons-csv.version>1.12.0</commons-csv.version>
+        <bedrockruntime.version>2.55.4</bedrockruntime.version>
     </properties>
 
     <dependencies>
@@ -55,6 +56,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
             <version>${commons-csv.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>bedrockruntime</artifactId>
+            <version>${bedrockruntime.version}</version>
         </dependency>
 
         <dependency>
