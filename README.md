@@ -1,88 +1,161 @@
-# Food Log — AI 语音饮食记录后端
+# Food Log — AI-Powered Food Logging
 
 [![CI](https://github.com/kiky97/food-log/actions/workflows/ci.yml/badge.svg)](https://github.com/kiky97/food-log/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-用户用自然语言(语音或文字)说出吃了什么,系统自动转成结构化的饮食记录并计算营养。
+A food logging application that turns natural-language meal descriptions—spoken or typed—into structured records and nutrient summaries.
 
+The Spring Boot backend extracts food names, quantities, units, and meal types using an LLM. It then matches foods against a multilingual catalogue, converts portions into grams, calculates nutrients, and stores the results in MongoDB.
+
+A React frontend supports text input, audio recording, food confirmation, and daily summaries.
+
+## Processing Pipeline
+
+```text
+Voice → Speech-to-text → Text → LLM entity extraction
+                                      ↓
+                               Food matching
+                                      ↓
+                               Portion conversion
+                                      ↓
+                               Nutrient calculation
+                                      ↓
+                                   MongoDB
 ```
-语音 ─► STT ─► 文本 ─► LLM 实体抽取 ─► 食物匹配 ─► 份量换算 ─► 营养计算 ─► MongoDB
-                         (Gemini / Bedrock,      (模糊匹配 +      (碗/片/个 → 克)
-                          结构化输出约束)          置信度分级)
-```
 
-## 技术栈
+The LLM interprets the meal description. Catalogue data and application code handle food matching, portion conversion, and nutrient calculation.
 
-Java 17+ · Spring Boot 3.5 · Spring Web / Validation · Spring Data MongoDB · Gemini API(Google AI Studio)· AWS Bedrock(Converse API + Tool Use)· springdoc(Swagger UI)· JUnit 5 · Testcontainers
+## Features
 
-## 快速开始
+- **Voice and text input:** record meals using natural language.
+- **Structured extraction:** Gemini JSON response schemas or AWS Bedrock Converse with forced tool use, followed by application-level validation.
+- **Multilingual food matching:** English, German, and Chinese names and aliases, with normalization, token scoring, and Jaro–Winkler typo tolerance for eligible non-Chinese tokens.
+- **User confirmation:** ambiguous and unmatched items are excluded from nutrient totals until resolved.
+- **Portion conversion:** convert pieces, slices, bowls, and other units into grams using food-specific weights or generic defaults.
+- **Nutrient summaries:** calculate daily and per-meal totals from matched and confirmed items.
+- **Resilient API calls:** configurable timeouts and exponential-backoff retries for transient failures.
+- **In-memory catalogue:** avoid database reads for every matching request and refresh the cache after CSV imports.
 
-需要 JDK 17+ 和 Docker。
+## Technology Stack
+
+| Area | Technologies |
+|---|---|
+| Backend | Java 17+, Spring Boot 3.5, Spring Web, Bean Validation |
+| Database | MongoDB, Spring Data MongoDB |
+| AI integrations | Gemini API, AWS Bedrock Converse API with tool use |
+| Frontend | React 19, TypeScript, Vite |
+| API documentation | springdoc, Swagger UI |
+| Testing | JUnit 5, Mockito, Testcontainers, Vitest |
+
+## Quick Start
+
+### Prerequisites
+
+- JDK 17 or later
+- Docker for the local MongoDB instance
+- Node.js and npm to run the frontend
+
+### Start the Backend
+
+From the repository root, start MongoDB:
 
 ```bash
 docker compose up -d
 ```
 
+Start the application:
+
 ```bash
 ./mvnw spring-boot:run
 ```
 
-Windows 用 `mvnw.cmd spring-boot:run`。启动后:
+On Windows:
+
+```powershell
+./mvnw.cmd spring-boot:run
+```
+
+Available endpoints:
 
 - Swagger UI: http://localhost:8080/swagger-ui.html
-- 健康检查: http://localhost:8080/actuator/health
+- Health check: http://localhost:8080/actuator/health
 
-默认使用 **Mock 模式**(不需要任何 Key),首次启动会自动导入 45 条示例食物。
+The application uses **mock providers by default**, so no API credentials are required. On the first run, it imports 45 sample food entries.
 
-### 试一试
+### Create a Food Log
+
+Example using Bash:
 
 ```bash
-curl -X POST http://localhost:8080/api/v1/logs -H "Content-Type: application/json" -d "{\"userId\":\"u1\",\"text\":\"I had two boiled eggs, a bowl of rice and an apple for breakfast\"}"
+curl -X POST http://localhost:8080/api/v1/logs \
+  -H "Content-Type: application/json" \
+  -d '{"userId":"u1","text":"I had two boiled eggs, a bowl of rice and an apple for breakfast"}'
 ```
+
+Retrieve the daily summary:
 
 ```bash
 curl "http://localhost:8080/api/v1/logs/summary?userId=u1"
 ```
 
-### 接入真实的 Gemini
+## AI Provider Configuration
 
-在 [Google AI Studio](https://aistudio.google.com/apikey) 申请 Key 后,设置环境变量再启动(PowerShell):
+### Gemini
 
-```powershell
-$env:GEMINI_API_KEY = "你的key"; $env:LLM_PROVIDER = "gemini"; $env:STT_PROVIDER = "gemini"; ./mvnw.cmd spring-boot:run
-```
+Create an API key in [Google AI Studio](https://aistudio.google.com/apikey), then configure the environment variables before starting the application.
 
-| 环境变量 | 默认值 | 说明 |
-|---|---|---|
-| `GEMINI_API_KEY` | 空 | AI Studio 的 API Key,只通过请求头发送,不会写日志 |
-| `LLM_PROVIDER` | `mock` | `gemini`、`bedrock` 或 `mock`,控制实体抽取 |
-| `STT_PROVIDER` | `mock` | `gemini` 或 `mock`,控制语音转文字 |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | 模型名 |
-| `MONGODB_URI` | `mongodb://localhost:27017/foodlog` | |
-
-> **Mock 模式的限制**:Mock LLM 只能解析简单英文句子;Mock STT 不能识别真实音频,上传 `.txt` 文件可模拟一段语音。中文、口语化、复杂句子需要用 Gemini 或 Bedrock。
-> 语音文件建议用 wav / mp3 / ogg / flac,最大 15MB。
-
-### 接入 AWS Bedrock
-
-`LLM_PROVIDER=bedrock` 时,`BedrockEntityExtractionClient` 通过 Bedrock 的 **Converse API + 强制 Tool Use** 拿结构化输出(等价于 Gemini 那边的 `responseSchema`)。凭证走 AWS 标准的默认凭证链(环境变量 / `~/.aws/credentials` / IAM Role),代码里不存、不读任何 AWS Key。
+PowerShell:
 
 ```powershell
-$env:AWS_ACCESS_KEY_ID = "..."; $env:AWS_SECRET_ACCESS_KEY = "..."
-$env:AWS_REGION = "us-east-1"; $env:LLM_PROVIDER = "bedrock"
+$env:GEMINI_API_KEY = "your-api-key"
+$env:LLM_PROVIDER = "gemini"
+$env:STT_PROVIDER = "gemini"
 ./mvnw.cmd spring-boot:run
 ```
 
-| 环境变量 | 默认值 | 说明 |
+| Variable | Default | Description |
 |---|---|---|
-| `AWS_REGION` | `us-east-1` | Bedrock 所在区域,需要该区域已开通目标模型的访问权限 |
-| `BEDROCK_MODEL` | `anthropic.claude-3-5-haiku-20241022-v1:0` | 需要支持 Tool Use 的模型(Claude 3 系列等) |
+| `GEMINI_API_KEY` | Empty | Google AI Studio API key, sent in a request header |
+| `LLM_PROVIDER` | `mock` | Entity extraction provider: `gemini`, `bedrock`, or `mock` |
+| `STT_PROVIDER` | `mock` | Speech-to-text provider: `gemini` or `mock` |
+| `GEMINI_MODEL` | `gemini-2.5-flash` | Gemini model identifier |
+| `MONGODB_URI` | `mongodb://localhost:27017/foodlog` | MongoDB connection URI |
 
-需要先在 AWS 控制台的 Bedrock → Model access 里为对应账号/区域开通该模型的访问权限,否则会收到 `AccessDeniedException`。
+> **Mock provider limitations:** the mock entity extractor handles only simple English sentences. The mock speech-to-text provider cannot transcribe real audio; upload a `.txt` file to simulate a transcript. Use a real entity extraction provider for Chinese, conversational language, and complex sentences.
+>
+> Bedrock supports entity extraction in this project. Gemini supports both entity extraction and speech-to-text.
+>
+> Recommended audio formats: WAV, MP3, OGG, or FLAC. Maximum upload size: 15 MB.
 
-## 前端
+### AWS Bedrock
 
-位于 `frontend/`,React 19 + Vite + TypeScript,不依赖任何 UI 或图表库。
+With `LLM_PROVIDER=bedrock`, `BedrockEntityExtractionClient` uses the **Converse API with forced tool use** to obtain structured output.
+
+Credentials are resolved through the standard AWS default credentials provider chain, including environment variables, shared credentials files, and IAM roles. AWS credentials are not hard-coded in application code.
+
+PowerShell example:
+
+```powershell
+$env:AWS_ACCESS_KEY_ID = "your-access-key-id"
+$env:AWS_SECRET_ACCESS_KEY = "your-secret-access-key"
+
+# Also set AWS_SESSION_TOKEN when using temporary credentials.
+
+$env:AWS_REGION = "us-east-1"
+$env:LLM_PROVIDER = "bedrock"
+./mvnw.cmd spring-boot:run
+```
+
+| Variable | Default | Description |
+|---|---|---|
+| `AWS_REGION` | `us-east-1` | AWS region for Bedrock requests |
+| `BEDROCK_MODEL` | `anthropic.claude-3-5-haiku-20241022-v1:0` | Model identifier; must support the tool-use configuration used by this implementation |
+
+Ensure that your AWS identity has the necessary permissions and access to the selected model in the configured region. Missing permissions or model access can result in an `AccessDeniedException`.
+
+## Frontend
+
+The frontend is located in `frontend/` and uses React 19, Vite, and TypeScript, without a UI component or charting library.
 
 ```bash
 cd frontend
@@ -90,100 +163,166 @@ npm install
 npm run dev
 ```
 
-打开 http://localhost:5173 。开发服务器把 `/api` 代理到 `localhost:8080`,所以需要先启动后端(浏览器只看到一个源,不需要配置 CORS)。
+Open http://localhost:5173.
 
-不想启动后端和 MongoDB 时,用内存版的假后端看界面:
+Start the backend first. The Vite development server proxies `/api` requests to `localhost:8080`, keeping browser requests on the same origin during development.
+
+### Preview Without the Backend
+
+To preview the interface without Spring Boot or MongoDB:
 
 ```bash
 npm run dev:mock
 ```
 
-> Mock 只认识八种食物、只做简单的关键词解析,仅用于开发界面和演示,不代表真实的匹配逻辑。
+> The frontend mock backend recognizes eight foods and uses simple keyword parsing. It is intended for interface development and demonstrations and does not reproduce the backend's matching algorithm.
 
-功能:
+### Frontend Features
 
-- 文字输入,或用麦克风录音、上传音频文件。浏览器录下来的音频先解码,再转成 16 kHz 单声道 WAV 上传,因为 Gemini 的音频输入不接受浏览器默认的 webm。
-- 每条记录显示识别原文、匹配到的食物、克数(份量是估算值时带 `≈`)和热量。
-- 状态为"需要确认"或"未找到"时,直接在该行选候选食物,或搜索食物库;已匹配的条目也可以点 "Wrong food?" 更正。
-- 右侧是当天汇总:总热量、碳水/蛋白质/脂肪的供能占比、纤维/糖/盐、分餐热量;还有多少项未确认、没有计入。
-- 支持手机宽度和深色模式。用户名保存在浏览器本地,没有登录。
+- Enter text, record audio using a microphone, or upload an audio file.
+- Browser recordings are decoded and converted to 16 kHz mono WAV before upload.
+- View the original text, matched foods, portion weights, and calories.
+- Estimated portions are marked with `≈`.
+- Resolve uncertain items by selecting a candidate or searching the catalogue.
+- Correct existing matches using **Wrong food?**.
+- View daily calories, macronutrient energy shares, fibre, sugar, salt, and per-meal calories.
+- See how many unresolved items are excluded from the totals.
+- Use a responsive layout with dark mode.
+
+The user identifier is stored locally in the browser. There is no login flow.
+
+### Frontend Checks
 
 ```bash
-npm test        # 单元与组件测试(vitest)
-npm run build   # 类型检查并打包到 frontend/dist
+npm test        # Unit and component tests with Vitest
+npm run build   # Type-check and build into frontend/dist
 ```
 
 ## API
 
-| 方法 | 路径 | 说明 |
+| Method | Endpoint | Description |
 |---|---|---|
-| POST | `/api/v1/logs` | 文字记录 `{userId, text, loggedAt?}` |
-| POST | `/api/v1/logs/voice` | 语音记录,multipart:`userId`、`audio`、`loggedAt?` |
-| POST | `/api/v1/logs/{logId}/items/{index}/confirm` | 确认或更正某一项匹配的食物 `{foodId}` |
-| GET | `/api/v1/logs?userId=&date=` | 某天的记录,`date` 默认今天 |
-| GET | `/api/v1/logs/summary?userId=&date=` | 某天的营养汇总(总量、分餐) |
-| GET | `/api/v1/foods/search?q=` | 食物模糊搜索,返回相似度 |
-| GET | `/api/v1/foods/{id}` | 食物详情 |
-| POST | `/api/v1/foods/import` | 上传 CSV 导入食物库(按 id 覆盖更新) |
+| POST | `/api/v1/logs` | Create a text log: `{userId, text, loggedAt?}` |
+| POST | `/api/v1/logs/voice` | Create a voice log using multipart fields: `userId`, `audio`, and optional `loggedAt` |
+| POST | `/api/v1/logs/{logId}/items/{index}/confirm` | Confirm or correct a food match: `{foodId}` |
+| GET | `/api/v1/logs?userId=&date=` | Retrieve logs for a date; defaults to today in the application time zone |
+| GET | `/api/v1/logs/summary?userId=&date=` | Retrieve daily and per-meal nutrient totals |
+| GET | `/api/v1/foods/search?q=` | Search foods using fuzzy matching and return similarity scores |
+| GET | `/api/v1/foods/{id}` | Retrieve a food entry |
+| POST | `/api/v1/foods/import` | Import a CSV catalogue; existing entries with the same ID are updated |
 
-### 匹配结果的三种状态
+## Matching and Confirmation
 
-| 状态 | 条件(默认) | 是否计入营养 |
+The matcher compares the extracted name against each food's English, German, and Chinese names and aliases.
+
+Normalization includes lowercasing, accent and punctuation removal, selected English stop-word removal, and simple English singularization.
+
+Token scores combine query coverage and candidate coverage:
+
+```text
+score = 0.7 × query coverage + 0.3 × candidate coverage
+```
+
+Jaro–Winkler similarity provides typo tolerance for eligible non-Chinese tokens. Chinese matching uses exact comparisons and a limited substring rule.
+
+### Match Statuses
+
+| Status | Default condition | Included in nutrient totals? |
 |---|---|---|
-| `MATCHED` | 相似度 ≥ 0.85,且第二名没有紧跟 | 是 |
-| `NEEDS_CONFIRMATION` | 0.6 ≤ 相似度 < 0.85,或前两名分数接近 | 否,等用户通过 `confirm` 接口选择 |
-| `UNMATCHED` | 相似度 < 0.6 | 否 |
+| `MATCHED` | Similarity ≥ 0.85 and no applicable near-tie | Yes |
+| `NEEDS_CONFIRMATION` | Similarity ≥ 0.6 but automatic acceptance conditions are not met | No |
+| `UNMATCHED` | Similarity < 0.6, or no candidate is found | No |
+| `CONFIRMED` | The user selects a food through the confirmation endpoint | Yes |
 
-用户确认后状态变为 `CONFIRMED`。份量如果用了通用默认值(例如库里没有"一份"的克数),`portionEstimated` 为 `true`。
+A near-tie occurs when the top two foods differ by less than `0.03` and the highest score is below `1.0`. The current implementation exempts a highest score of exactly `1.0` from this check.
 
-## 项目结构
+Similarity scores are matching heuristics, not calibrated probabilities.
 
-```
-frontend/     React 前端(见上文)
-controller/   REST 接口(FoodLogController, FoodController)
-dto/          请求与响应对象
-service/      FoodLogService(主流程)、FoodCatalog、CSV 导入
-client/       外部服务:stt/(语音转文字)、llm/(实体抽取)、gemini/(HTTP 调用、重试)
-matching/     食物名归一化与模糊匹配
-portion/      单位与份量换算
-domain/       Mongo 文档与值对象
-repository/   Spring Data 仓库
-exception/    统一错误处理(ProblemDetail)
+After confirmation, the application recalculates the item's portion and nutrients and updates the log totals.
+
+## Portion Conversion and Nutrient Calculation
+
+Portion conversion follows this priority:
+
+```text
+Fixed unit conversion → food-specific portion weight → generic default
 ```
 
-STT 与 LLM 都在接口后面,Gemini / Bedrock / Mock 通过配置切换;要换成别的模型或云平台,只需再实现一个接口。
+For example, kilograms are converted directly into grams, while units such as `piece` or `bowl` use the food's portion weights when available.
 
-## 关于食物数据(重要)
+If a generic default is required, `portionEstimated` is set to `true`.
 
-`src/main/resources/data/foods_sample.csv` 里的 45 条是**示例数据,营养值为近似值,不是瑞士官方数据库**,只用于演示和测试。
+Nutrients are calculated from catalogue values per 100 grams:
 
-要使用 Swiss Food Composition Database:
-
-1. 从官方网站(https://naehrwertdaten.ch)下载数据。
-2. 整理成下面的 CSV 列(UTF-8,营养值均为每 100 g,`aliases` 用 `;` 分隔,份量列可留空):
-
+```text
+Consumed nutrients = nutrients per 100 g × consumed grams / 100
 ```
+
+Daily and per-meal summaries include only matched or confirmed items. Unresolved items are counted separately.
+
+## Project Structure
+
+Backend package directories are under `src/main/java/com/foodlog/`.
+
+```text
+frontend/     React frontend
+controller/   REST endpoints: FoodLogController and FoodController
+dto/          Request and response objects
+service/      Pipeline orchestration, catalogue cache, summaries, and CSV import
+client/       Speech-to-text, entity extraction, and external API clients
+matching/     Food-name normalization and fuzzy matching
+portion/      Unit normalization and conversion to grams
+domain/       MongoDB documents and value objects
+repository/   Spring Data MongoDB repositories
+exception/    Centralized error handling with ProblemDetail
+```
+
+Speech-to-text and entity extraction are defined through interfaces. Implementations are selected through configuration, allowing additional providers to be added without changing the main pipeline.
+
+Food logs use a compound MongoDB index on `userId` and `logDate`. Daily and per-meal summaries are calculated in the application from the selected day's records.
+
+## Food Data
+
+The 45 entries in `src/main/resources/data/foods_sample.csv` are **sample data with approximate nutrient values**. They are intended for demonstrations and tests and are **not the official Swiss Food Composition Database**.
+
+To import data from the Swiss Food Composition Database:
+
+1. Obtain the data from the [official website](https://naehrwertdaten.ch) and review its usage terms.
+2. Convert it to a UTF-8 CSV using the columns below. Nutrient values must be expressed per 100 grams. Separate aliases with `;`; portion-weight fields may be left empty.
+3. Upload the CSV through `POST /api/v1/foods/import`.
+
+```csv
 id,name_en,name_de,name_zh,aliases,category,kcal,protein_g,fat_g,carb_g,fiber_g,sugar_g,salt_g,piece_g,slice_g,cup_g,bowl_g,serving_g
 ```
 
-3. 调用 `POST /api/v1/foods/import` 上传。请先确认该数据库的使用许可。
+## Testing
 
-## 测试
+Run backend tests:
 
 ```bash
 ./mvnw test
 ```
 
-- 单元测试:名称归一化、匹配、份量换算、CSV 解析、`FoodLogService` 全流程(用假仓库,不需要 Docker)、Gemini 客户端(用 `MockRestServiceServer` 模拟 HTTP,覆盖重试、非法 JSON、限流)、Bedrock 客户端(用 Mockito 模拟 `BedrockRuntimeClient`,覆盖 Tool Use 解析、限流重试、网络错误)。
-- 集成测试:`FoodLogApiIntegrationTest` 通过 Testcontainers 启动真实 MongoDB,需要 Docker;没有 Docker 时**自动跳过而不是失败**(本地没装 Docker 也能跑单元测试)。CI(GitHub Actions 的 ubuntu 镜像自带 Docker)会真正执行这部分测试。
-- `FoodMatcherTest` 里有一组带标注的查询(复数、拼写错误、语序、德文、中文),运行时会打印自动匹配准确率。这个数字只反映**示例库**上的表现,换成完整数据库后需要重新评测。
+Test coverage includes:
 
-> Docker Engine 29+ 与 Testcontainers 1.x 默认的 API 版本不兼容,所以 `pom.xml` 里给 Surefire 设置了 `api.version=1.44`。如果你的 Docker 版本低于 25,请删掉这一项。
+- **Unit tests:** name normalization, food matching, portion conversion, CSV parsing, and the `FoodLogService` pipeline using fake repositories without Docker.
+- **Gemini client tests:** simulated HTTP responses using `MockRestServiceServer`, covering retries, malformed JSON, and rate limiting.
+- **Bedrock client tests:** a mocked `BedrockRuntimeClient`, covering tool-use parsing, rate-limit retries, and network failures.
+- **Integration tests:** `FoodLogApiIntegrationTest` starts MongoDB through Testcontainers. These tests require Docker and are automatically skipped if Docker is unavailable. The GitHub Actions CI configuration runs them on an Ubuntu runner with Docker.
+- **Matcher evaluation:** `FoodMatcherTest` includes labeled queries covering plurals, spelling errors, word order, German, and Chinese. Reported automatic-matching accuracy reflects only the sample catalogue and must be re-evaluated for other datasets.
 
-## 已知限制 / 后续可做
+> The project sets `api.version=1.44` for Surefire to address compatibility between Docker Engine 29+ and Testcontainers 1.x. If you use Docker Engine older than version 25, remove this override from `pom.xml`.
 
-- Gemini 的两个实现已用模拟 HTTP 测试,Bedrock 实现已用模拟的 SDK 客户端测试,但**都没有用真实凭证端到端验证过**;首次使用请先用一两句话试一遍。
-- 前端的**麦克风录音没有在真实浏览器里验证过**(自动化环境没有麦克风),其余界面流程已用 Mock 后端走通;前端与真实后端的联调也还没做过。
-- 食物匹配是词级模糊匹配,不理解语义(比如"cottage cheese"和"cheese"的区别依赖库里的条目)。可以在低置信度时增加一次让 LLM 从候选中选择的步骤,或改用向量检索。
-- 份量换算是静态表,不会根据"一小碗/一大碗"调整。
-- 没有用户认证,`userId` 由调用方传入。
+## Known Limitations and Future Improvements
+
+- Gemini integrations have been tested with simulated HTTP responses, and the Bedrock integration with a mocked SDK client. **They have not been verified end to end with live credentials.**
+- **Microphone recording has not been verified in a real browser with a microphone.** Other interface flows have been exercised against the mock backend; integration between the frontend and real backend has not yet been verified.
+- Food matching is lexical rather than semantic. Possible improvements include vector retrieval or LLM-based reranking of uncertain candidates.
+- Portion weights are static and do not adjust for descriptions such as “a small bowl” or “a large bowl.”
+- Volume conversions assume a density of 1 g/ml. This can introduce errors for foods with different densities, and the current implementation does not flag this assumption as an estimated portion.
+- The food catalogue cache is local to each application instance. Multi-instance deployments would need coordinated refreshes or another cache strategy.
+- There is no user authentication. The caller supplies `userId`.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
