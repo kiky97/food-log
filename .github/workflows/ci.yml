@@ -16,10 +16,26 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Run tests
-        run: ./mvnw test -B
-      - name: Build jar
-        run: ./mvnw package -B -DskipTests
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Swiss conversion policy
+        run: python -m unittest discover -s scripts -p 'test_*.py'
+      - name: Test and build with coverage
+        run: ./mvnw clean verify -B
+      - name: Evaluate matching without coverage instrumentation
+        run: ./mvnw test -B -Dtest=MatchingEvaluationTest -Dfoodlog.evaluate=true -Djacoco.skip=true -Dsurefire.reportsDirectory=target/evaluation-test-reports -Devaluation.revision=${{ github.sha }}
+      - name: Render evaluation report
+        run: python scripts/report_evaluation.py
+      - name: Upload evaluation and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-evidence
+          path: |
+            target/evaluation/
+            target/site/jacoco/
+            target/surefire-reports/
 
   frontend:
     name: Frontend (Node, Vite)

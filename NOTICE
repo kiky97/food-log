@@ -1,0 +1,11 @@
+Official food data attribution
+
+The derived data file src/main/resources/data/foods_swiss_v7_1.csv is based on:
+Federal Food Safety and Veterinary Office FSVO,
+Swiss Food Composition Database, version 7.1 (1 July 2026).
+https://www.naehrwertdaten.ch/en/downloads/
+
+Reuse is subject to acknowledgment of the source as described on the official
+website. The project's MIT software license does not replace those data terms.
+See docs/SWISS_DATA.md and the companion provenance JSON for transformations,
+checksums, scope, and excluded records.
