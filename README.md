@@ -338,7 +338,7 @@ Test coverage includes:
 ## Known Limitations and Future Improvements
 
 - Gemini integrations have been tested with simulated HTTP responses, and the Bedrock integration with a mocked SDK client. **They have not been verified end to end with live credentials.**
-- **Microphone recording has not been verified in a real browser with a microphone.** Other interface flows have been exercised against the mock backend; integration between the frontend and real backend has not yet been verified.
+- **Microphone recording has not been verified in a real browser with a microphone.** Desktop and mobile text-entry, confirmation, catalogue search, and persistence flows have now been verified in headless Chromium against the real Spring Boot backend and MongoDB with the Swiss catalogue and mock AI extraction. See the [browser smoke evidence](docs/evaluation/RESULTS.md#live-stack-browser-smoke).
 - Food matching is lexical rather than semantic. Possible improvements include vector retrieval or LLM-based reranking of uncertain candidates.
 - Portion weights are static and do not adjust for descriptions such as “a small bowl” or “a large bowl.”
 - Volume conversions assume a density of 1 g/ml. This can introduce errors for foods with different densities, and the current implementation does not flag this assumption as an estimated portion.

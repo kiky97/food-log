@@ -5893,5 +5893,6 @@
       ]
     }
   },
-  "note": "Pre-fix quality baseline; measured under coverage instrumentation. Timing discarded. Development fixtures, not held-out data."
+  "note": "Pre-fix quality baseline; measured under coverage instrumentation. Timing discarded. Development fixtures, not held-out data.",
+  "matcherSourceSha256": "1743003e3f0c34a423d83a9e3454e540dc56e0b6748bb0b1b21b0ac620f74efb"
 }

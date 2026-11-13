@@ -42,3 +42,14 @@ Three warmup passes precede ten measured passes in a single JVM, using `System.n
 These are small, manually curated development fixtures, with many direct catalogue names and synthetic negative queries. They are **not independent held-out production data**, statistically representative user traffic, or an LLM extraction evaluation. The Swiss challenge set helped identify and fix an underspecified-query bug, so results after that fix are regression measurements. No claim of 100% general accuracy, real-user improvement, live provider validation, cost savings, or business impact is justified.
 
 For a future release, freeze the implementation first, collect a separately annotated held-out set with preparation-specific labels, use realistic near-negative foods, and record the precision/coverage trade-off before tuning thresholds.
+
+## Optional live-stack browser smoke
+
+With the Swiss backend and MongoDB running, start Vite (`cd frontend && npm ci && npm run dev`). In a Python environment with `playwright` installed and Chromium available, run:
+
+```bash
+python scripts/smoke_swiss_ui.py --chromium /usr/bin/chromium
+python scripts/report_evaluation.py
+```
+
+This **creates test logs** under unique `browser-smoke-*` users. Use a disposable database, e.g. `MONGODB_URI=mongodb://localhost:27017/foodlog_swiss_smoke`. The default script URL is `http://127.0.0.1:5173`; use `--url` to override it. The checks use the real browser → Vite proxy → Spring Boot → MongoDB path, with mock extraction. Screenshots and JSON go to `target/evaluation/ui/`. The browser check is optional and has not been added to CI's dependency requirements.

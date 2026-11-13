@@ -41,8 +41,18 @@ for c in coverage.findall('counter'):
     if c.get('type') in ['LINE','BRANCH']:
         covered, missed = int(c.get('covered')), int(c.get('missed'))
         lines.append(f"- Overall {c.get('type').lower()} coverage: {covered}/{covered + missed} ({pct(covered / (covered + missed))}). Includes all backend production classes; no exclusions.")
-lines += ['', 'Frontend: 10 existing Vitest tests passed; TypeScript and Vite production build passed in the same workspace. Python conversion policy: 3 tests passed, including parameterized missing/invalid values.', '',
+lines += ['', 'Separately recorded local verification: 10 existing Vitest tests and the TypeScript / Vite production build passed; Python conversion policy had 3 passing tests, including parameterized missing/invalid values. This renderer does not rerun those commands; CI executes the checks separately.', '',
           'Raw evidence: [matching JSON](matching.json), [pre-fix quality JSON](before-fix.json). CI also uploads Surefire and JaCoCo reports.']
+lines += ['', '## Remaining Swiss errors', '', '| Query | Automatically selected food ID |', '|---|---|']
+for case in report['swiss']['fuzzy']['cases']:
+    if not case['correctDecision']:
+        lines.append(f"| {case['label']['query']} | {case['prediction']['foodId']} |")
+lines += ['', 'The remaining `bread → Breadcrumbs` and `cheese → Cheeseburger` failures show lexical prefix similarity can still cause unsafe automatic decisions. A future matcher should distinguish category names from prepared foods; do not describe this version as fully safe or semantically accurate.']
+ui_path = root / 'target/evaluation/ui/results.json'
+if ui_path.exists():
+    ui = json.loads(ui_path.read_text())
+    lines += ['', '## Live-stack browser smoke', '', f"{sum(r['passed'] for r in ui)}/{len(ui)} scenario checks passed across desktop (1440×1000) and mobile (390×844) Chromium viewports, with real Spring Boot and MongoDB, the official Swiss catalogue, and mock AI extraction.", '', 'Checks cover official apple nutrients, exclusion of unresolved pork, catalogue search and confirmation, persisted state after reload, no uncaught browser errors, and no horizontal page overflow. Real microphones and live model calls remain untested.', '', '[Desktop screenshot](ui/desktop.png) · [Mobile screenshot](ui/mobile.png) · [Raw browser evidence](ui/results.json)']
 (root / 'docs/evaluation/RESULTS.md').write_text('\n'.join(lines) + '\n')
 (root / 'docs/evaluation/matching.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+(root / 'target/evaluation/report.md').write_text('\n'.join(lines) + '\n')
 print('\n'.join(lines))
