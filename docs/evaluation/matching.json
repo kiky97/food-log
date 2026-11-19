@@ -1,0 +1,5920 @@
+{
+  "java": "17.0.21",
+  "os": "Linux amd64",
+  "processors": 2,
+  "revision": "66c38e4b65ddedb254fad5008cc835a258c08e8f",
+  "thresholds": {
+    "candidates": 3,
+    "auto": 0.85,
+    "minimum": 0.6
+  },
+  "sample": {
+    "catalogueSize": 45,
+    "catalogueSha256": "bbd315cdb7c3e910df3c40e621c5dab26576c6eb261f3702b02473820a04ef05",
+    "queriesSha256": "c2079ef2eefa164c6e74bd650cbeeecd3606f896a6d9a78ece68753d1c39766e",
+    "queryCount": 100,
+    "exact": {
+      "queries": 100,
+      "positiveQueries": 80,
+      "negativeQueries": 20,
+      "autoAccepted": 66,
+      "correctAutoAccepted": 66,
+      "falseAutoAccepted": 0,
+      "correctRejections": 20,
+      "decisionAccuracy": 0.86,
+      "autoPrecision": 1.0,
+      "autoCoverage": 0.66,
+      "positiveAutoRecall": 0.825,
+      "candidateRecallAt3": 0.825,
+      "safeRejectionRate": 1.0,
+      "byCategory": {
+        "catalogue_name": {
+          "queries": 65,
+          "positiveQueries": 65,
+          "negativeQueries": 0,
+          "autoAccepted": 65,
+          "correctAutoAccepted": 65,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        },
+        "out_of_catalogue": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "unsupported_preparation": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "variant": {
+          "queries": 15,
+          "positiveQueries": 15,
+          "negativeQueries": 0,
+          "autoAccepted": 1,
+          "correctAutoAccepted": 1,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 0.06666666666666667,
+          "autoPrecision": 1.0,
+          "autoCoverage": 0.06666666666666667,
+          "positiveAutoRecall": 0.06666666666666667,
+          "candidateRecallAt3": 0.06666666666666667,
+          "safeRejectionRate": null
+        }
+      },
+      "byLanguage": {
+        "de": {
+          "queries": 10,
+          "positiveQueries": 10,
+          "negativeQueries": 0,
+          "autoAccepted": 10,
+          "correctAutoAccepted": 10,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        },
+        "en": {
+          "queries": 70,
+          "positiveQueries": 60,
+          "negativeQueries": 10,
+          "autoAccepted": 46,
+          "correctAutoAccepted": 46,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 0.8,
+          "autoPrecision": 1.0,
+          "autoCoverage": 0.6571428571428571,
+          "positiveAutoRecall": 0.7666666666666667,
+          "candidateRecallAt3": 0.7666666666666667,
+          "safeRejectionRate": 1.0
+        },
+        "mixed": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "zh": {
+          "queries": 10,
+          "positiveQueries": 10,
+          "negativeQueries": 0,
+          "autoAccepted": 10,
+          "correctAutoAccepted": 10,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        }
+      },
+      "cases": [
+        {
+          "label": {
+            "query": "Apple",
+            "expectedId": "S001",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Banana",
+            "expectedId": "S002",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange",
+            "expectedId": "S003",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S003",
+            "candidates": [
+              "S003"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Strawberry",
+            "expectedId": "S004",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S004",
+            "candidates": [
+              "S004"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Grapes",
+            "expectedId": "S005",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S005",
+            "candidates": [
+              "S005"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Avocado",
+            "expectedId": "S006",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S006",
+            "candidates": [
+              "S006"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tomato",
+            "expectedId": "S007",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cucumber",
+            "expectedId": "S008",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S008",
+            "candidates": [
+              "S008"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Carrot",
+            "expectedId": "S009",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S009",
+            "candidates": [
+              "S009"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Broccoli",
+            "expectedId": "S010",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S010",
+            "candidates": [
+              "S010"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Potato boiled",
+            "expectedId": "S011",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S011",
+            "candidates": [
+              "S011"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Rice white cooked",
+            "expectedId": "S012",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Rice brown cooked",
+            "expectedId": "S013",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S013",
+            "candidates": [
+              "S013"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Pasta cooked",
+            "expectedId": "S014",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S014",
+            "candidates": [
+              "S014"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Bread white",
+            "expectedId": "S015",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S015",
+            "candidates": [
+              "S015"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Bread whole wheat",
+            "expectedId": "S016",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S016",
+            "candidates": [
+              "S016"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Oatmeal cooked",
+            "expectedId": "S017",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S017",
+            "candidates": [
+              "S017"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Egg boiled",
+            "expectedId": "S018",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S018",
+            "candidates": [
+              "S018"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Egg fried",
+            "expectedId": "S019",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S019",
+            "candidates": [
+              "S019"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Milk whole",
+            "expectedId": "S020",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S020",
+            "candidates": [
+              "S020"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Yogurt plain",
+            "expectedId": "S021",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S021",
+            "candidates": [
+              "S021"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cheese Emmental",
+            "expectedId": "S022",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S022",
+            "candidates": [
+              "S022"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Butter",
+            "expectedId": "S023",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S023",
+            "candidates": [
+              "S023"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chicken breast cooked",
+            "expectedId": "S024",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S024",
+            "candidates": [
+              "S024"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Beef steak cooked",
+            "expectedId": "S025",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S025",
+            "candidates": [
+              "S025"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Pork cooked",
+            "expectedId": "S026",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S026",
+            "candidates": [
+              "S026"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Salmon cooked",
+            "expectedId": "S027",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S027",
+            "candidates": [
+              "S027"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tuna canned",
+            "expectedId": "S028",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S028",
+            "candidates": [
+              "S028"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tofu",
+            "expectedId": "S029",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S029",
+            "candidates": [
+              "S029"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Lentils cooked",
+            "expectedId": "S030",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S030",
+            "candidates": [
+              "S030"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Almonds",
+            "expectedId": "S031",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S031",
+            "candidates": [
+              "S031"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Peanut butter",
+            "expectedId": "S032",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S032",
+            "candidates": [
+              "S032"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Olive oil",
+            "expectedId": "S033",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S033",
+            "candidates": [
+              "S033"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chocolate dark",
+            "expectedId": "S034",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S034",
+            "candidates": [
+              "S034"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Coffee black",
+            "expectedId": "S035",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S035",
+            "candidates": [
+              "S035"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange juice",
+            "expectedId": "S036",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S036",
+            "candidates": [
+              "S036"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cola",
+            "expectedId": "S037",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S037",
+            "candidates": [
+              "S037"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Pizza Margherita",
+            "expectedId": "S038",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S038",
+            "candidates": [
+              "S038"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Hamburger",
+            "expectedId": "S039",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S039",
+            "candidates": [
+              "S039"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "French fries",
+            "expectedId": "S040",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S040",
+            "candidates": [
+              "S040"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Dumplings",
+            "expectedId": "S041",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S041",
+            "candidates": [
+              "S041"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Fried rice",
+            "expectedId": "S042",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S042",
+            "candidates": [
+              "S042"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Salad mixed green",
+            "expectedId": "S043",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S043",
+            "candidates": [
+              "S043"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Muesli",
+            "expectedId": "S044",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S044",
+            "candidates": [
+              "S044"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Sushi",
+            "expectedId": "S045",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S045",
+            "candidates": [
+              "S045"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "appless",
+            "expectedId": "S001",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "bananna",
+            "expectedId": "S002",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "strawbery",
+            "expectedId": "S004",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "tomatto",
+            "expectedId": "S007",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "brocolli",
+            "expectedId": "S010",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "rice white",
+            "expectedId": "S012",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "egg fried",
+            "expectedId": "S019",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S019",
+            "candidates": [
+              "S019"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "chicken grilled",
+            "expectedId": "S024",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "salomn",
+            "expectedId": "S027",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "almnods",
+            "expectedId": "S031",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "butter peanut",
+            "expectedId": "S032",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "oil olive",
+            "expectedId": "S033",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chocolatte",
+            "expectedId": "S034",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "cofee black",
+            "expectedId": "S035",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "juice orange",
+            "expectedId": "S036",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "Apfel",
+            "expectedId": "S001",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Banane",
+            "expectedId": "S002",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tomate",
+            "expectedId": "S007",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Karotte",
+            "expectedId": "S009",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S009",
+            "candidates": [
+              "S009"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Reis weiss gekocht",
+            "expectedId": "S012",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Vollkornbrot",
+            "expectedId": "S016",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S016",
+            "candidates": [
+              "S016"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Ei gekocht",
+            "expectedId": "S018",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S018",
+            "candidates": [
+              "S018"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Vollmilch",
+            "expectedId": "S020",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S020",
+            "candidates": [
+              "S020"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Olivenöl",
+            "expectedId": "S033",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S033",
+            "candidates": [
+              "S033"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Müesli",
+            "expectedId": "S044",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S044",
+            "candidates": [
+              "S044"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "苹果",
+            "expectedId": "S001",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "香蕉",
+            "expectedId": "S002",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "番茄",
+            "expectedId": "S007",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "胡萝卜",
+            "expectedId": "S009",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S009",
+            "candidates": [
+              "S009"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "米饭",
+            "expectedId": "S012",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "水煮蛋",
+            "expectedId": "S018",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S018",
+            "candidates": [
+              "S018"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "鸡胸肉",
+            "expectedId": "S024",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S024",
+            "candidates": [
+              "S024"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "豆腐",
+            "expectedId": "S029",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S029",
+            "candidates": [
+              "S029"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "饺子",
+            "expectedId": "S041",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S041",
+            "candidates": [
+              "S041"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "寿司",
+            "expectedId": "S045",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S045",
+            "candidates": [
+              "S045"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "sparkling unicorn",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "dragon fruit",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "quinoa",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "kimchi",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "durian",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "ramen",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "龙眼",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "榴莲",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "Sauerkraut",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "Kohlrabi",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chicken soup",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "apple juice",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "rice cake",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "banana bread",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "salmon soup",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chocolate milk",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "peanut oil",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "fried tofu",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "orange cake",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "egg salad",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        }
+      ],
+      "timing": {
+        "p95Ms": 0.112116,
+        "p50Ms": 0.048078,
+        "samples": 1000,
+        "warmupPasses": 3
+      }
+    },
+    "fuzzy": {
+      "queries": 100,
+      "positiveQueries": 80,
+      "negativeQueries": 20,
+      "autoAccepted": 80,
+      "correctAutoAccepted": 80,
+      "falseAutoAccepted": 0,
+      "correctRejections": 20,
+      "decisionAccuracy": 1.0,
+      "autoPrecision": 1.0,
+      "autoCoverage": 0.8,
+      "positiveAutoRecall": 1.0,
+      "candidateRecallAt3": 1.0,
+      "safeRejectionRate": 1.0,
+      "byCategory": {
+        "catalogue_name": {
+          "queries": 65,
+          "positiveQueries": 65,
+          "negativeQueries": 0,
+          "autoAccepted": 65,
+          "correctAutoAccepted": 65,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        },
+        "out_of_catalogue": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "unsupported_preparation": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "variant": {
+          "queries": 15,
+          "positiveQueries": 15,
+          "negativeQueries": 0,
+          "autoAccepted": 15,
+          "correctAutoAccepted": 15,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        }
+      },
+      "byLanguage": {
+        "de": {
+          "queries": 10,
+          "positiveQueries": 10,
+          "negativeQueries": 0,
+          "autoAccepted": 10,
+          "correctAutoAccepted": 10,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        },
+        "en": {
+          "queries": 70,
+          "positiveQueries": 60,
+          "negativeQueries": 10,
+          "autoAccepted": 60,
+          "correctAutoAccepted": 60,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 0.8571428571428571,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": 1.0
+        },
+        "mixed": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "zh": {
+          "queries": 10,
+          "positiveQueries": 10,
+          "negativeQueries": 0,
+          "autoAccepted": 10,
+          "correctAutoAccepted": 10,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        }
+      },
+      "cases": [
+        {
+          "label": {
+            "query": "Apple",
+            "expectedId": "S001",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Banana",
+            "expectedId": "S002",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange",
+            "expectedId": "S003",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S003",
+            "candidates": [
+              "S003",
+              "S036"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Strawberry",
+            "expectedId": "S004",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S004",
+            "candidates": [
+              "S004"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Grapes",
+            "expectedId": "S005",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S005",
+            "candidates": [
+              "S005"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Avocado",
+            "expectedId": "S006",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S006",
+            "candidates": [
+              "S006"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tomato",
+            "expectedId": "S007",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cucumber",
+            "expectedId": "S008",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S008",
+            "candidates": [
+              "S008"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Carrot",
+            "expectedId": "S009",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S009",
+            "candidates": [
+              "S009"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Broccoli",
+            "expectedId": "S010",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S010",
+            "candidates": [
+              "S010"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Potato boiled",
+            "expectedId": "S011",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S011",
+            "candidates": [
+              "S011",
+              "S018"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Rice white cooked",
+            "expectedId": "S012",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012",
+              "S013",
+              "S037"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Rice brown cooked",
+            "expectedId": "S013",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S013",
+            "candidates": [
+              "S013",
+              "S012",
+              "S037"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Pasta cooked",
+            "expectedId": "S014",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S014",
+            "candidates": [
+              "S014",
+              "S037",
+              "S026"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Bread white",
+            "expectedId": "S015",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S015",
+            "candidates": [
+              "S015",
+              "S012",
+              "S016"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Bread whole wheat",
+            "expectedId": "S016",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S016",
+            "candidates": [
+              "S016",
+              "S015"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Oatmeal cooked",
+            "expectedId": "S017",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S017",
+            "candidates": [
+              "S017",
+              "S037",
+              "S026"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Egg boiled",
+            "expectedId": "S018",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S018",
+            "candidates": [
+              "S018",
+              "S019",
+              "S011"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Egg fried",
+            "expectedId": "S019",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S019",
+            "candidates": [
+              "S019",
+              "S018",
+              "S042"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Milk whole",
+            "expectedId": "S020",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S020",
+            "candidates": [
+              "S020",
+              "S016"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Yogurt plain",
+            "expectedId": "S021",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S021",
+            "candidates": [
+              "S021"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cheese Emmental",
+            "expectedId": "S022",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S022",
+            "candidates": [
+              "S022",
+              "S039"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Butter",
+            "expectedId": "S023",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S023",
+            "candidates": [
+              "S023",
+              "S032"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chicken breast cooked",
+            "expectedId": "S024",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S024",
+            "candidates": [
+              "S024",
+              "S037"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Beef steak cooked",
+            "expectedId": "S025",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S025",
+            "candidates": [
+              "S025",
+              "S037"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Pork cooked",
+            "expectedId": "S026",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S026",
+            "candidates": [
+              "S026",
+              "S037",
+              "S014"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Salmon cooked",
+            "expectedId": "S027",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S027",
+            "candidates": [
+              "S027",
+              "S037",
+              "S026"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tuna canned",
+            "expectedId": "S028",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S028",
+            "candidates": [
+              "S028"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tofu",
+            "expectedId": "S029",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S029",
+            "candidates": [
+              "S029"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Lentils cooked",
+            "expectedId": "S030",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S030",
+            "candidates": [
+              "S030",
+              "S037",
+              "S026"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Almonds",
+            "expectedId": "S031",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S031",
+            "candidates": [
+              "S031"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Peanut butter",
+            "expectedId": "S032",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S032",
+            "candidates": [
+              "S032",
+              "S023"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Olive oil",
+            "expectedId": "S033",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S033",
+            "candidates": [
+              "S033"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chocolate dark",
+            "expectedId": "S034",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S034",
+            "candidates": [
+              "S034"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Coffee black",
+            "expectedId": "S035",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S035",
+            "candidates": [
+              "S035"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange juice",
+            "expectedId": "S036",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S036",
+            "candidates": [
+              "S036",
+              "S003"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cola",
+            "expectedId": "S037",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S037",
+            "candidates": [
+              "S037"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Pizza Margherita",
+            "expectedId": "S038",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S038",
+            "candidates": [
+              "S038"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Hamburger",
+            "expectedId": "S039",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S039",
+            "candidates": [
+              "S039"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "French fries",
+            "expectedId": "S040",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S040",
+            "candidates": [
+              "S040"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Dumplings",
+            "expectedId": "S041",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S041",
+            "candidates": [
+              "S041"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Fried rice",
+            "expectedId": "S042",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S042",
+            "candidates": [
+              "S042",
+              "S012",
+              "S019"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Salad mixed green",
+            "expectedId": "S043",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S043",
+            "candidates": [
+              "S043"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Muesli",
+            "expectedId": "S044",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S044",
+            "candidates": [
+              "S044"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Sushi",
+            "expectedId": "S045",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S045",
+            "candidates": [
+              "S045"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "appless",
+            "expectedId": "S001",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "bananna",
+            "expectedId": "S002",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "strawbery",
+            "expectedId": "S004",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S004",
+            "candidates": [
+              "S004"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "tomatto",
+            "expectedId": "S007",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "brocolli",
+            "expectedId": "S010",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S010",
+            "candidates": [
+              "S010"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "rice white",
+            "expectedId": "S012",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012",
+              "S042",
+              "S015"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "egg fried",
+            "expectedId": "S019",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S019",
+            "candidates": [
+              "S019",
+              "S018",
+              "S042"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "chicken grilled",
+            "expectedId": "S024",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S024",
+            "candidates": [
+              "S024"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "salomn",
+            "expectedId": "S027",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S027",
+            "candidates": [
+              "S027"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "almnods",
+            "expectedId": "S031",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S031",
+            "candidates": [
+              "S031"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "butter peanut",
+            "expectedId": "S032",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S032",
+            "candidates": [
+              "S032",
+              "S023"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "oil olive",
+            "expectedId": "S033",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S033",
+            "candidates": [
+              "S033"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "chocolatte",
+            "expectedId": "S034",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S034",
+            "candidates": [
+              "S034"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "cofee black",
+            "expectedId": "S035",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S035",
+            "candidates": [
+              "S035"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "juice orange",
+            "expectedId": "S036",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S036",
+            "candidates": [
+              "S036",
+              "S003"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Apfel",
+            "expectedId": "S001",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Banane",
+            "expectedId": "S002",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tomate",
+            "expectedId": "S007",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Karotte",
+            "expectedId": "S009",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S009",
+            "candidates": [
+              "S009"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Reis weiss gekocht",
+            "expectedId": "S012",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012",
+              "S015"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Vollkornbrot",
+            "expectedId": "S016",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S016",
+            "candidates": [
+              "S016",
+              "S013"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Ei gekocht",
+            "expectedId": "S018",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S018",
+            "candidates": [
+              "S018",
+              "S014",
+              "S011"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Vollmilch",
+            "expectedId": "S020",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S020",
+            "candidates": [
+              "S020"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Olivenöl",
+            "expectedId": "S033",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S033",
+            "candidates": [
+              "S033"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Müesli",
+            "expectedId": "S044",
+            "language": "de",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S044",
+            "candidates": [
+              "S044"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "苹果",
+            "expectedId": "S001",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S001",
+            "candidates": [
+              "S001"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "香蕉",
+            "expectedId": "S002",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S002",
+            "candidates": [
+              "S002"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "番茄",
+            "expectedId": "S007",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S007",
+            "candidates": [
+              "S007"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "胡萝卜",
+            "expectedId": "S009",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S009",
+            "candidates": [
+              "S009"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "米饭",
+            "expectedId": "S012",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S012",
+            "candidates": [
+              "S012",
+              "S013"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "水煮蛋",
+            "expectedId": "S018",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S018",
+            "candidates": [
+              "S018"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "鸡胸肉",
+            "expectedId": "S024",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S024",
+            "candidates": [
+              "S024"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "豆腐",
+            "expectedId": "S029",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S029",
+            "candidates": [
+              "S029"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "饺子",
+            "expectedId": "S041",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S041",
+            "candidates": [
+              "S041"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "寿司",
+            "expectedId": "S045",
+            "language": "zh",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "S045",
+            "candidates": [
+              "S045"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "sparkling unicorn",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "dragon fruit",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "quinoa",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "kimchi",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "durian",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "ramen",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "龙眼",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "榴莲",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "Sauerkraut",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "Kohlrabi",
+            "expectedId": "",
+            "language": "mixed",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chicken soup",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S024"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "apple juice",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S001",
+              "S036"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "rice cake",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S012",
+              "S042",
+              "S013"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "banana bread",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S002",
+              "S015",
+              "S016"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "salmon soup",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S027"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chocolate milk",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S020",
+              "S034"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "peanut oil",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S033",
+              "S032"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "fried tofu",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S029",
+              "S019",
+              "S042"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "orange cake",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S003",
+              "S036"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "egg salad",
+            "expectedId": "",
+            "language": "en",
+            "category": "unsupported_preparation"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "S018",
+              "S043",
+              "S019"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        }
+      ],
+      "timing": {
+        "p95Ms": 1.858213,
+        "p50Ms": 0.706266,
+        "samples": 1000,
+        "warmupPasses": 3
+      }
+    }
+  },
+  "swiss": {
+    "catalogueSize": 1161,
+    "catalogueSha256": "a5d57f64e612dfc3ac160b45769cd62eff2d8eed7d5894773fc3438d3f70f301",
+    "queriesSha256": "43119ffd836689f3f3abb5335c21b008de71cb38bcbc62c4bdc9f0907afe3e14",
+    "queryCount": 60,
+    "exact": {
+      "queries": 60,
+      "positiveQueries": 40,
+      "negativeQueries": 20,
+      "autoAccepted": 20,
+      "correctAutoAccepted": 20,
+      "falseAutoAccepted": 0,
+      "correctRejections": 20,
+      "decisionAccuracy": 0.6666666666666666,
+      "autoPrecision": 1.0,
+      "autoCoverage": 0.3333333333333333,
+      "positiveAutoRecall": 0.5,
+      "candidateRecallAt3": 0.5,
+      "safeRejectionRate": 1.0,
+      "byCategory": {
+        "catalogue_name": {
+          "queries": 20,
+          "positiveQueries": 20,
+          "negativeQueries": 0,
+          "autoAccepted": 20,
+          "correctAutoAccepted": 20,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        },
+        "out_of_catalogue": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "underspecified": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "variant": {
+          "queries": 20,
+          "positiveQueries": 20,
+          "negativeQueries": 0,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 0.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": 0.0,
+          "candidateRecallAt3": 0.0,
+          "safeRejectionRate": null
+        }
+      },
+      "byLanguage": {
+        "en": {
+          "queries": 60,
+          "positiveQueries": 40,
+          "negativeQueries": 20,
+          "autoAccepted": 20,
+          "correctAutoAccepted": 20,
+          "falseAutoAccepted": 0,
+          "correctRejections": 20,
+          "decisionAccuracy": 0.6666666666666666,
+          "autoPrecision": 1.0,
+          "autoCoverage": 0.3333333333333333,
+          "positiveAutoRecall": 0.5,
+          "candidateRecallAt3": 0.5,
+          "safeRejectionRate": 1.0
+        }
+      },
+      "cases": [
+        {
+          "label": {
+            "query": "Apple, fresh",
+            "expectedId": "CH-378",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-378",
+            "candidates": [
+              "CH-378"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Banana, raw",
+            "expectedId": "CH-381",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-381",
+            "candidates": [
+              "CH-381"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Avocado, fresh",
+            "expectedId": "CH-380",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-380",
+            "candidates": [
+              "CH-380"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Broccoli, raw",
+            "expectedId": "CH-351",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-351",
+            "candidates": [
+              "CH-351"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Carrot, raw",
+            "expectedId": "CH-355",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-355",
+            "candidates": [
+              "CH-355"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chicken egg, whole, hard boiled",
+            "expectedId": "CH-1070",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1070",
+            "candidates": [
+              "CH-1070"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chicken, breast, without skin, raw",
+            "expectedId": "CH-22",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-22",
+            "candidates": [
+              "CH-22"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Olive oil",
+            "expectedId": "CH-591",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-591",
+            "candidates": [
+              "CH-591"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Salmon, smoked",
+            "expectedId": "CH-193",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-193",
+            "candidates": [
+              "CH-193"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tofu, silken (soft), plain",
+            "expectedId": "CH-13438",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-13438",
+            "candidates": [
+              "CH-13438"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Coffee, black, no sugar added",
+            "expectedId": "CH-994",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-994",
+            "candidates": [
+              "CH-994"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cucumber, raw",
+            "expectedId": "CH-354",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-354",
+            "candidates": [
+              "CH-354"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange juice",
+            "expectedId": "CH-576",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-576",
+            "candidates": [
+              "CH-576"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange, fresh",
+            "expectedId": "CH-405",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-405",
+            "candidates": [
+              "CH-405"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Peanut butter",
+            "expectedId": "CH-751",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-751",
+            "candidates": [
+              "CH-751"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Almond",
+            "expectedId": "CH-273",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-273",
+            "candidates": [
+              "CH-273"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Strawberry, fresh",
+            "expectedId": "CH-385",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-385",
+            "candidates": [
+              "CH-385"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "White bread",
+            "expectedId": "CH-823",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-823",
+            "candidates": [
+              "CH-823"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Rice polished, cooked in salted water (uniodised)",
+            "expectedId": "CH-1066",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1066",
+            "candidates": [
+              "CH-1066"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Lentil, whole, cooked (without addition of fat and salt)",
+            "expectedId": "CH-1060",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1060",
+            "candidates": [
+              "CH-1060"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "apple fresh",
+            "expectedId": "CH-378",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "bananna raw",
+            "expectedId": "CH-381",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "avocado fresh",
+            "expectedId": "CH-380",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "brocolli raw",
+            "expectedId": "CH-351",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "carrot raw",
+            "expectedId": "CH-355",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "hard boiled whole chicken egg",
+            "expectedId": "CH-1070",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "raw chicken breast without skin",
+            "expectedId": "CH-22",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "oil olive",
+            "expectedId": "CH-591",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "smoked salmon",
+            "expectedId": "CH-193",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "plain soft silken tofu",
+            "expectedId": "CH-13438",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "black coffee no sugar added",
+            "expectedId": "CH-994",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "cucumber raw",
+            "expectedId": "CH-354",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "juice orange",
+            "expectedId": "CH-576",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "fresh orange",
+            "expectedId": "CH-405",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "butter peanut",
+            "expectedId": "CH-751",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "almnod",
+            "expectedId": "CH-273",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "fresh strawberry",
+            "expectedId": "CH-385",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "bread white",
+            "expectedId": "CH-823",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "rice polished cooked in salted water uniodised",
+            "expectedId": "CH-1066",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "whole lentil cooked without addition of fat and salt",
+            "expectedId": "CH-1060",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "sparkling unicorn",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "moonstone stew",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "dragon scale tea",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "xyzzy",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "quantum noodles",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "nebula broth",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "galactic dust",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "unobtainium",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "asteroid jelly",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "cosmic crystal",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "rice",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "salmon",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chicken",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "beef",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "pork",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "milk",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "yogurt",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "potato",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "bread",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "cheese",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        }
+      ],
+      "timing": {
+        "p95Ms": 1.190442,
+        "p50Ms": 0.523647,
+        "samples": 600,
+        "warmupPasses": 3
+      }
+    },
+    "fuzzy": {
+      "queries": 60,
+      "positiveQueries": 40,
+      "negativeQueries": 20,
+      "autoAccepted": 42,
+      "correctAutoAccepted": 40,
+      "falseAutoAccepted": 2,
+      "correctRejections": 18,
+      "decisionAccuracy": 0.9666666666666667,
+      "autoPrecision": 0.9523809523809523,
+      "autoCoverage": 0.7,
+      "positiveAutoRecall": 1.0,
+      "candidateRecallAt3": 1.0,
+      "safeRejectionRate": 0.9,
+      "byCategory": {
+        "catalogue_name": {
+          "queries": 20,
+          "positiveQueries": 20,
+          "negativeQueries": 0,
+          "autoAccepted": 20,
+          "correctAutoAccepted": 20,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        },
+        "out_of_catalogue": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 0,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 0,
+          "correctRejections": 10,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": null,
+          "autoCoverage": 0.0,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 1.0
+        },
+        "underspecified": {
+          "queries": 10,
+          "positiveQueries": 0,
+          "negativeQueries": 10,
+          "autoAccepted": 2,
+          "correctAutoAccepted": 0,
+          "falseAutoAccepted": 2,
+          "correctRejections": 8,
+          "decisionAccuracy": 0.8,
+          "autoPrecision": 0.0,
+          "autoCoverage": 0.2,
+          "positiveAutoRecall": null,
+          "candidateRecallAt3": null,
+          "safeRejectionRate": 0.8
+        },
+        "variant": {
+          "queries": 20,
+          "positiveQueries": 20,
+          "negativeQueries": 0,
+          "autoAccepted": 20,
+          "correctAutoAccepted": 20,
+          "falseAutoAccepted": 0,
+          "correctRejections": 0,
+          "decisionAccuracy": 1.0,
+          "autoPrecision": 1.0,
+          "autoCoverage": 1.0,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": null
+        }
+      },
+      "byLanguage": {
+        "en": {
+          "queries": 60,
+          "positiveQueries": 40,
+          "negativeQueries": 20,
+          "autoAccepted": 42,
+          "correctAutoAccepted": 40,
+          "falseAutoAccepted": 2,
+          "correctRejections": 18,
+          "decisionAccuracy": 0.9666666666666667,
+          "autoPrecision": 0.9523809523809523,
+          "autoCoverage": 0.7,
+          "positiveAutoRecall": 1.0,
+          "candidateRecallAt3": 1.0,
+          "safeRejectionRate": 0.9
+        }
+      },
+      "cases": [
+        {
+          "label": {
+            "query": "Apple, fresh",
+            "expectedId": "CH-378",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-378",
+            "candidates": [
+              "CH-378",
+              "CH-568",
+              "CH-435"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Banana, raw",
+            "expectedId": "CH-381",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-381",
+            "candidates": [
+              "CH-381",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Avocado, fresh",
+            "expectedId": "CH-380",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-380",
+            "candidates": [
+              "CH-380"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Broccoli, raw",
+            "expectedId": "CH-351",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-351",
+            "candidates": [
+              "CH-351",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Carrot, raw",
+            "expectedId": "CH-355",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-355",
+            "candidates": [
+              "CH-355",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chicken egg, whole, hard boiled",
+            "expectedId": "CH-1070",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1070",
+            "candidates": [
+              "CH-1070"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Chicken, breast, without skin, raw",
+            "expectedId": "CH-22",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-22",
+            "candidates": [
+              "CH-22",
+              "CH-20",
+              "CH-26"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Olive oil",
+            "expectedId": "CH-591",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-591",
+            "candidates": [
+              "CH-591",
+              "CH-907",
+              "CH-14158"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Salmon, smoked",
+            "expectedId": "CH-193",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-193",
+            "candidates": [
+              "CH-193",
+              "CH-13976",
+              "CH-210"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Tofu, silken (soft), plain",
+            "expectedId": "CH-13438",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-13438",
+            "candidates": [
+              "CH-13438",
+              "CH-14167"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Coffee, black, no sugar added",
+            "expectedId": "CH-994",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-994",
+            "candidates": [
+              "CH-994",
+              "CH-1188",
+              "CH-1190"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Cucumber, raw",
+            "expectedId": "CH-354",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-354",
+            "candidates": [
+              "CH-354",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange juice",
+            "expectedId": "CH-576",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-576",
+            "candidates": [
+              "CH-576",
+              "CH-405",
+              "CH-562"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Orange, fresh",
+            "expectedId": "CH-405",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-405",
+            "candidates": [
+              "CH-405",
+              "CH-576",
+              "CH-572"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Peanut butter",
+            "expectedId": "CH-751",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-751",
+            "candidates": [
+              "CH-751",
+              "CH-282",
+              "CH-529"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Almond",
+            "expectedId": "CH-273",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-273",
+            "candidates": [
+              "CH-273",
+              "CH-14113",
+              "CH-269"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Strawberry, fresh",
+            "expectedId": "CH-385",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-385",
+            "candidates": [
+              "CH-385",
+              "CH-53"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "White bread",
+            "expectedId": "CH-823",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-823",
+            "candidates": [
+              "CH-823",
+              "CH-833",
+              "CH-844"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Rice polished, cooked in salted water (uniodised)",
+            "expectedId": "CH-1066",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1066",
+            "candidates": [
+              "CH-1066",
+              "CH-1065",
+              "CH-1067"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "Lentil, whole, cooked (without addition of fat and salt)",
+            "expectedId": "CH-1060",
+            "language": "en",
+            "category": "catalogue_name"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1060",
+            "candidates": [
+              "CH-1060",
+              "CH-13386",
+              "CH-13396"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "apple fresh",
+            "expectedId": "CH-378",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-378",
+            "candidates": [
+              "CH-378",
+              "CH-568",
+              "CH-435"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "bananna raw",
+            "expectedId": "CH-381",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-381",
+            "candidates": [
+              "CH-381",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "avocado fresh",
+            "expectedId": "CH-380",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-380",
+            "candidates": [
+              "CH-380"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "brocolli raw",
+            "expectedId": "CH-351",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-351",
+            "candidates": [
+              "CH-351",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "carrot raw",
+            "expectedId": "CH-355",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-355",
+            "candidates": [
+              "CH-355",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "hard boiled whole chicken egg",
+            "expectedId": "CH-1070",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1070",
+            "candidates": [
+              "CH-1070"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "raw chicken breast without skin",
+            "expectedId": "CH-22",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-22",
+            "candidates": [
+              "CH-22",
+              "CH-20",
+              "CH-26"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "oil olive",
+            "expectedId": "CH-591",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-591",
+            "candidates": [
+              "CH-591",
+              "CH-907",
+              "CH-14158"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "smoked salmon",
+            "expectedId": "CH-193",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-193",
+            "candidates": [
+              "CH-193",
+              "CH-13976",
+              "CH-210"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "plain soft silken tofu",
+            "expectedId": "CH-13438",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-13438",
+            "candidates": [
+              "CH-13438",
+              "CH-14167"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "black coffee no sugar added",
+            "expectedId": "CH-994",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-994",
+            "candidates": [
+              "CH-994",
+              "CH-1188",
+              "CH-1190"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "cucumber raw",
+            "expectedId": "CH-354",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-354",
+            "candidates": [
+              "CH-354",
+              "CH-285",
+              "CH-290"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "juice orange",
+            "expectedId": "CH-576",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-576",
+            "candidates": [
+              "CH-576",
+              "CH-405",
+              "CH-562"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "fresh orange",
+            "expectedId": "CH-405",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-405",
+            "candidates": [
+              "CH-405",
+              "CH-576",
+              "CH-572"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "butter peanut",
+            "expectedId": "CH-751",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-751",
+            "candidates": [
+              "CH-751",
+              "CH-282",
+              "CH-529"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "almnod",
+            "expectedId": "CH-273",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-273",
+            "candidates": [
+              "CH-273",
+              "CH-14113",
+              "CH-269"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "fresh strawberry",
+            "expectedId": "CH-385",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-385",
+            "candidates": [
+              "CH-385",
+              "CH-53"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "bread white",
+            "expectedId": "CH-823",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-823",
+            "candidates": [
+              "CH-823",
+              "CH-833",
+              "CH-844"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "rice polished cooked in salted water uniodised",
+            "expectedId": "CH-1066",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1066",
+            "candidates": [
+              "CH-1066",
+              "CH-1065",
+              "CH-1067"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "whole lentil cooked without addition of fat and salt",
+            "expectedId": "CH-1060",
+            "language": "en",
+            "category": "variant"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-1060",
+            "candidates": [
+              "CH-1060",
+              "CH-13386",
+              "CH-13396"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": true
+        },
+        {
+          "label": {
+            "query": "sparkling unicorn",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": [
+              "CH-551"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "moonstone stew",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "dragon scale tea",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "xyzzy",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "quantum noodles",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "nebula broth",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "galactic dust",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "unobtainium",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "asteroid jelly",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": [
+              "CH-951"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "cosmic crystal",
+            "expectedId": "",
+            "language": "en",
+            "category": "out_of_catalogue"
+          },
+          "prediction": {
+            "status": "UNMATCHED",
+            "foodId": "",
+            "candidates": []
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "rice",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-13450",
+              "CH-427",
+              "CH-14137"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "salmon",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-193",
+              "CH-210",
+              "CH-194"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "chicken",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-439",
+              "CH-24",
+              "CH-711"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "beef",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-639",
+              "CH-657",
+              "CH-14237"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "pork",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-594",
+              "CH-42",
+              "CH-8"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "milk",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-528",
+              "CH-13458",
+              "CH-1194"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "yogurt",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-14135",
+              "CH-57",
+              "CH-52"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "potato",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "NEEDS_CONFIRMATION",
+            "foodId": "",
+            "candidates": [
+              "CH-497",
+              "CH-13406",
+              "CH-813"
+            ]
+          },
+          "correctDecision": true,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "bread",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-750",
+            "candidates": [
+              "CH-750",
+              "CH-823",
+              "CH-829"
+            ]
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        },
+        {
+          "label": {
+            "query": "cheese",
+            "expectedId": "",
+            "language": "en",
+            "category": "underspecified"
+          },
+          "prediction": {
+            "status": "MATCHED",
+            "foodId": "CH-14024",
+            "candidates": [
+              "CH-14024",
+              "CH-615",
+              "CH-1196"
+            ]
+          },
+          "correctDecision": false,
+          "candidateHit": false
+        }
+      ],
+      "timing": {
+        "p95Ms": 28.235841,
+        "p50Ms": 9.589031,
+        "samples": 600,
+        "warmupPasses": 3
+      }
+    }
+  }
+}

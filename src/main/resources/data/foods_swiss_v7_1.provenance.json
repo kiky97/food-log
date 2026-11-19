@@ -1,0 +1,404 @@
+{
+  "source": "https://naehrwertdaten.ch/wp-content/uploads/2026/07/Swiss_food_composition_database.xlsx",
+  "attribution": "Federal Food Safety and Veterinary Office FSVO, Swiss Food Composition Database, V7.1 (2026)",
+  "terms": "https://www.naehrwertdaten.ch/en/downloads/",
+  "source_sha256": "323bae2eecd639d2c3b3bf3797d30b1426ccb0253fb62810f522778b38089196",
+  "csv_sha256": "a5d57f64e612dfc3ac160b45769cd62eff2d8eed7d5894773fc3438d3f70f301",
+  "scope": "Generic Foods sheet only; English names; no invented translations or portion weights",
+  "source_rows": 1216,
+  "imported_rows": 1161,
+  "excluded_rows": 55,
+  "missing_policy": "Exclude rows with unknown, non-numeric or negative values for any of the seven required nutrients; never replace unknown with zero",
+  "excluded": [
+    {
+      "id": "CH-10533",
+      "name": "Agar Agar",
+      "reasons": [
+        "sugar_g: n.d."
+      ]
+    },
+    {
+      "id": "CH-13449",
+      "name": "Artichoke, heart, canned, drained",
+      "reasons": [
+        "fat_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-13455",
+      "name": "Balsamic vinegar",
+      "reasons": [
+        "fat_g: <0.6"
+      ]
+    },
+    {
+      "id": "CH-817",
+      "name": "Beer, five grain",
+      "reasons": [
+        "fiber_g: <0.2"
+      ]
+    },
+    {
+      "id": "CH-1211",
+      "name": "Bernese alp cheese",
+      "reasons": [
+        "sugar_g: n.d."
+      ]
+    },
+    {
+      "id": "CH-1212",
+      "name": "Bernese cheese for slicing",
+      "reasons": [
+        "sugar_g: n.d."
+      ]
+    },
+    {
+      "id": "CH-13395",
+      "name": "Blanc battu, plain, low fat",
+      "reasons": [
+        "fiber_g: tr."
+      ]
+    },
+    {
+      "id": "CH-668",
+      "name": "Bouillon, meat, prepared",
+      "reasons": [
+        "fiber_g: tr."
+      ]
+    },
+    {
+      "id": "CH-665",
+      "name": "Bouillon, poultry, prepared",
+      "reasons": [
+        "fiber_g: tr."
+      ]
+    },
+    {
+      "id": "CH-664",
+      "name": "Bouillon, vegetable, prepared",
+      "reasons": [
+        "fiber_g: tr."
+      ]
+    },
+    {
+      "id": "CH-705",
+      "name": "Bresaola (cured beef)",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-14151",
+      "name": "Cheese substitute, made from coconut oil and starch",
+      "reasons": [
+        "protein_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-13460",
+      "name": "Chickenburger",
+      "reasons": [
+        "fiber_g: <1.2"
+      ]
+    },
+    {
+      "id": "CH-983",
+      "name": "Coffee, instant, powder",
+      "reasons": [
+        "fat_g: tr."
+      ]
+    },
+    {
+      "id": "CH-499",
+      "name": "Cola beverage, with sweetener",
+      "reasons": [
+        "fat_g: tr."
+      ]
+    },
+    {
+      "id": "CH-14192",
+      "name": "Durum wheat, precooked hulled grain, cooked (without addition of fat and salt)",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-549",
+      "name": "Feta, ewe-/goat milk",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-756",
+      "name": "Fish, tuna, raw",
+      "reasons": [
+        "carb_g: tr."
+      ]
+    },
+    {
+      "id": "CH-669",
+      "name": "Graubünden barley soup",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-651",
+      "name": "Gravy, brown",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-630",
+      "name": "Green peas, canned",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-13959",
+      "name": "Ice cream cone",
+      "reasons": [
+        "fiber_g: <3"
+      ]
+    },
+    {
+      "id": "CH-14206",
+      "name": "Ice cream, with flavor",
+      "reasons": [
+        "fiber_g: <2"
+      ]
+    },
+    {
+      "id": "CH-13883",
+      "name": "Litchi, raw",
+      "reasons": [
+        "fat_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-426",
+      "name": "Maize starch",
+      "reasons": [
+        "fat_g: tr.",
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-208",
+      "name": "Margarine, without butter, 70 - 80 % Fett",
+      "reasons": [
+        "protein_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-772",
+      "name": "Mayonnaise, low calorie",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-761",
+      "name": "Molluscs, blue mussel, raw",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-688",
+      "name": "Mushroom soup",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-629",
+      "name": "Mushroom, canned",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-13977",
+      "name": "Mussel, cooked",
+      "reasons": [
+        "sugar_g: n.d."
+      ]
+    },
+    {
+      "id": "CH-492",
+      "name": "Olive, green, in brine, drained",
+      "reasons": [
+        "carb_g: tr.",
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-482",
+      "name": "Parmesan cheese",
+      "reasons": [
+        "carb_g: tr.",
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-681",
+      "name": "Peanut curls",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-1539",
+      "name": "Pizza with four cheeses, baked",
+      "reasons": [
+        "unsupported matrix unit: "
+      ]
+    },
+    {
+      "id": "CH-647",
+      "name": "Sauerkraut, pickled",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-14149",
+      "name": "Sausage, vegan, made from tofu or soy protein",
+      "reasons": [
+        "fiber_g: <3"
+      ]
+    },
+    {
+      "id": "CH-507",
+      "name": "Schabziger (Swiss green cheese)",
+      "reasons": [
+        "carb_g: tr.",
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-14281",
+      "name": "Shallot, raw",
+      "reasons": [
+        "fat_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-13924",
+      "name": "Soft goat's cheese",
+      "reasons": [
+        "carb_g: tr.",
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-570",
+      "name": "St. Paulin cheese",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-770",
+      "name": "Surimi",
+      "reasons": [
+        "fiber_g: <0.3"
+      ]
+    },
+    {
+      "id": "CH-14120",
+      "name": "Tofu ferm, plain (produced with calcium salt)",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-14119",
+      "name": "Tofu, ferm, plain (produced with nigari)",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-13437",
+      "name": "Tofu, firm, plain (average)",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-14090",
+      "name": "Tofu, smoked (average)",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-14122",
+      "name": "Tofu, smoked (produced with calcium salt)",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-14121",
+      "name": "Tofu, smoked (produced with nigari)",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    },
+    {
+      "id": "CH-14003",
+      "name": "Tzatziki",
+      "reasons": [
+        "fiber_g: tr."
+      ]
+    },
+    {
+      "id": "CH-673",
+      "name": "Veal, kidney, raw",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-674",
+      "name": "Veal, tongue, raw",
+      "reasons": [
+        "sugar_g: tr."
+      ]
+    },
+    {
+      "id": "CH-10542",
+      "name": "Wasabi Paste",
+      "reasons": [
+        "sugar_g: n.d."
+      ]
+    },
+    {
+      "id": "CH-13939",
+      "name": "Worcestershire sauce",
+      "reasons": [
+        "fiber_g: tr."
+      ]
+    },
+    {
+      "id": "CH-14171",
+      "name": "Yogurt substitute, based on almond, plain",
+      "reasons": [
+        "fiber_g: n.d."
+      ]
+    },
+    {
+      "id": "CH-13454",
+      "name": "Yogurt substitute, soy-based. with fruit or flavour, with sugar, with calcium and vitamins fortified",
+      "reasons": [
+        "fiber_g: <0.5"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "viewport": "desktop",
+    "flow": "official apple log and daily total",
+    "passed": true
+  },
+  {
+    "viewport": "desktop",
+    "flow": "underspecified food excluded from nutrients",
+    "passed": true
+  },
+  {
+    "viewport": "desktop",
+    "flow": "catalogue search, confirmation and persistence after reload",
+    "passed": true
+  },
+  {
+    "viewport": "mobile",
+    "flow": "official apple log and daily total",
+    "passed": true
+  },
+  {
+    "viewport": "mobile",
+    "flow": "underspecified food excluded from nutrients",
+    "passed": true
+  },
+  {
+    "viewport": "mobile",
+    "flow": "catalogue search, confirmation and persistence after reload",
+    "passed": true
+  }
+]

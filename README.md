@@ -80,7 +80,7 @@ Available endpoints:
 - Swagger UI: http://localhost:8080/swagger-ui.html
 - Health check: http://localhost:8080/actuator/health
 
-The application uses **mock providers by default**, so no API credentials are required. On the first run, it imports 45 sample food entries.
+The application uses **mock providers by default**, so no API credentials are required. On the first run, the default profile imports 45 sample food entries. The optional `swiss` profile imports **1,161 official FSVO V7.1 food records** with complete values for the seven supported nutrients. See [Swiss data, attribution, and reproducible conversion](docs/SWISS_DATA.md).
 
 ### Create a Food Log
 
@@ -236,6 +236,8 @@ Jaro–Winkler similarity provides typo tolerance for eligible non-Chinese token
 
 A near-tie occurs when the top two foods differ by less than `0.03` and the highest score is below `1.0`. The current implementation exempts a highest score of exactly `1.0` from this check.
 
+Single-token queries cannot automatically select a more specific multi-token food name unless a suitable single-token name or explicit alias exists. This prevents a broad query such as `pork` from silently becoming `Pork lard` in the official catalogue.
+
 Similarity scores are matching heuristics, not calibrated probabilities.
 
 After confirmation, the application recalculates the item's portion and nutrients and updates the log totals.
@@ -285,15 +287,35 @@ Food logs use a compound MongoDB index on `userId` and `logDate`. Daily and per-
 
 The 45 entries in `src/main/resources/data/foods_sample.csv` are **sample data with approximate nutrient values**. They are intended for demonstrations and tests and are **not the official Swiss Food Composition Database**.
 
-To import data from the Swiss Food Composition Database:
+### Official Swiss Catalogue (included)
 
-1. Obtain the data from the [official website](https://naehrwertdaten.ch) and review its usage terms.
-2. Convert it to a UTF-8 CSV using the columns below. Nutrient values must be expressed per 100 grams. Separate aliases with `;`; portion-weight fields may be left empty.
-3. Upload the CSV through `POST /api/v1/foods/import`.
+The repository also includes a derived CSV from the **FSVO Swiss Food Composition Database V7.1**: 1,161 complete-nutrient generic foods out of 1,216 source rows. The 55 excluded rows, source attribution, and SHA-256 checksums are recorded in the provenance JSON. Missing values are not replaced with zero. The English workbook supplies no Chinese translations or food-specific portion weights.
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=swiss
+```
+
+This seeds an empty, separate `foodlog_swiss` database. Existing databases are not replaced. See [official data setup and conversion](docs/SWISS_DATA.md) and [NOTICE](NOTICE).
+
+Custom CSV imports still use this format (nutrients per 100g, semicolon-separated aliases):
 
 ```csv
 id,name_en,name_de,name_zh,aliases,category,kcal,protein_g,fat_g,carb_g,fiber_g,sugar_g,salt_g,piece_g,slice_g,cup_g,bowl_g,serving_g
 ```
+
+## Quantitative Evaluation
+
+The repository contains **160 labeled development queries** across separate sample (100) and official Swiss (60) evaluations. Reports compare an exact-name/alias baseline with fuzzy matching and include automatic precision, coverage, positive recall, safe rejections, candidate recall@3, P50/P95 in-process latency, and every prediction. These small curated regression sets are not estimates of production accuracy.
+
+```bash
+./mvnw clean verify                    # Tests, jar, and JaCoCo coverage
+./mvnw test -Dtest=MatchingEvaluationTest -Dfoodlog.evaluate=true -Djacoco.skip=true \
+  -Dsurefire.reportsDirectory=target/evaluation-test-reports \
+  -Devaluation.revision=$(git rev-parse HEAD)
+python scripts/report_evaluation.py
+```
+
+See [methodology and metric definitions](docs/evaluation/README.md), [measured results](docs/evaluation/RESULTS.md), and [resume wording in Chinese](docs/RESUME_ZH.md). CI uploads raw matching, test, and coverage artifacts. Timing is measured separately from coverage instrumentation.
 
 ## Testing
 
@@ -309,14 +331,14 @@ Test coverage includes:
 - **Gemini client tests:** simulated HTTP responses using `MockRestServiceServer`, covering retries, malformed JSON, and rate limiting.
 - **Bedrock client tests:** a mocked `BedrockRuntimeClient`, covering tool-use parsing, rate-limit retries, and network failures.
 - **Integration tests:** `FoodLogApiIntegrationTest` starts MongoDB through Testcontainers. These tests require Docker and are automatically skipped if Docker is unavailable. The GitHub Actions CI configuration runs them on an Ubuntu runner with Docker.
-- **Matcher evaluation:** `FoodMatcherTest` includes labeled queries covering plurals, spelling errors, word order, German, and Chinese. Reported automatic-matching accuracy reflects only the sample catalogue and must be re-evaluated for other datasets.
+- **Matcher evaluation:** the original 38-query smoke test remains. The opt-in `MatchingEvaluationTest` adds 100 sample and 60 official-catalogue labeled queries, including negative decisions and exact-matching baselines. `SwissCatalogIntegrationTest` checks official catalogue seeding and nutrient calculations through REST and MongoDB.
 
 > The project sets `api.version=1.44` for Surefire to address compatibility between Docker Engine 29+ and Testcontainers 1.x. If you use Docker Engine older than version 25, remove this override from `pom.xml`.
 
 ## Known Limitations and Future Improvements
 
 - Gemini integrations have been tested with simulated HTTP responses, and the Bedrock integration with a mocked SDK client. **They have not been verified end to end with live credentials.**
-- **Microphone recording has not been verified in a real browser with a microphone.** Other interface flows have been exercised against the mock backend; integration between the frontend and real backend has not yet been verified.
+- **Microphone recording has not been verified in a real browser with a microphone.** Desktop and mobile text-entry, confirmation, catalogue search, and persistence flows have now been verified in headless Chromium against the real Spring Boot backend and MongoDB with the Swiss catalogue and mock AI extraction. See the [browser smoke evidence](docs/evaluation/RESULTS.md#live-stack-browser-smoke).
 - Food matching is lexical rather than semantic. Possible improvements include vector retrieval or LLM-based reranking of uncertain candidates.
 - Portion weights are static and do not adjust for descriptions such as “a small bowl” or “a large bowl.”
 - Volume conversions assume a density of 1 g/ml. This can introduce errors for foods with different densities, and the current implementation does not flag this assumption as an estimated portion.

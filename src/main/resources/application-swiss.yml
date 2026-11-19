@@ -1,0 +1,7 @@
+# Use a separate database so sample and official records are not silently mixed.
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/foodlog_swiss}
+app:
+  seed-resource: data/foods_swiss_v7_1.csv

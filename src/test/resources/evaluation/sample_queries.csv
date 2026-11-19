@@ -1,0 +1,101 @@
+query,expected_id,language,category
+Apple,S001,en,catalogue_name
+Banana,S002,en,catalogue_name
+Orange,S003,en,catalogue_name
+Strawberry,S004,en,catalogue_name
+Grapes,S005,en,catalogue_name
+Avocado,S006,en,catalogue_name
+Tomato,S007,en,catalogue_name
+Cucumber,S008,en,catalogue_name
+Carrot,S009,en,catalogue_name
+Broccoli,S010,en,catalogue_name
+Potato boiled,S011,en,catalogue_name
+Rice white cooked,S012,en,catalogue_name
+Rice brown cooked,S013,en,catalogue_name
+Pasta cooked,S014,en,catalogue_name
+Bread white,S015,en,catalogue_name
+Bread whole wheat,S016,en,catalogue_name
+Oatmeal cooked,S017,en,catalogue_name
+Egg boiled,S018,en,catalogue_name
+Egg fried,S019,en,catalogue_name
+Milk whole,S020,en,catalogue_name
+Yogurt plain,S021,en,catalogue_name
+Cheese Emmental,S022,en,catalogue_name
+Butter,S023,en,catalogue_name
+Chicken breast cooked,S024,en,catalogue_name
+Beef steak cooked,S025,en,catalogue_name
+Pork cooked,S026,en,catalogue_name
+Salmon cooked,S027,en,catalogue_name
+Tuna canned,S028,en,catalogue_name
+Tofu,S029,en,catalogue_name
+Lentils cooked,S030,en,catalogue_name
+Almonds,S031,en,catalogue_name
+Peanut butter,S032,en,catalogue_name
+Olive oil,S033,en,catalogue_name
+Chocolate dark,S034,en,catalogue_name
+Coffee black,S035,en,catalogue_name
+Orange juice,S036,en,catalogue_name
+Cola,S037,en,catalogue_name
+Pizza Margherita,S038,en,catalogue_name
+Hamburger,S039,en,catalogue_name
+French fries,S040,en,catalogue_name
+Dumplings,S041,en,catalogue_name
+Fried rice,S042,en,catalogue_name
+Salad mixed green,S043,en,catalogue_name
+Muesli,S044,en,catalogue_name
+Sushi,S045,en,catalogue_name
+appless,S001,en,variant
+bananna,S002,en,variant
+strawbery,S004,en,variant
+tomatto,S007,en,variant
+brocolli,S010,en,variant
+rice white,S012,en,variant
+egg fried,S019,en,variant
+chicken grilled,S024,en,variant
+salomn,S027,en,variant
+almnods,S031,en,variant
+butter peanut,S032,en,variant
+oil olive,S033,en,variant
+chocolatte,S034,en,variant
+cofee black,S035,en,variant
+juice orange,S036,en,variant
+Apfel,S001,de,catalogue_name
+Banane,S002,de,catalogue_name
+Tomate,S007,de,catalogue_name
+Karotte,S009,de,catalogue_name
+Reis weiss gekocht,S012,de,catalogue_name
+Vollkornbrot,S016,de,catalogue_name
+Ei gekocht,S018,de,catalogue_name
+Vollmilch,S020,de,catalogue_name
+Olivenöl,S033,de,catalogue_name
+Müesli,S044,de,catalogue_name
+苹果,S001,zh,catalogue_name
+香蕉,S002,zh,catalogue_name
+番茄,S007,zh,catalogue_name
+胡萝卜,S009,zh,catalogue_name
+米饭,S012,zh,catalogue_name
+水煮蛋,S018,zh,catalogue_name
+鸡胸肉,S024,zh,catalogue_name
+豆腐,S029,zh,catalogue_name
+饺子,S041,zh,catalogue_name
+寿司,S045,zh,catalogue_name
+sparkling unicorn,,mixed,out_of_catalogue
+dragon fruit,,mixed,out_of_catalogue
+quinoa,,mixed,out_of_catalogue
+kimchi,,mixed,out_of_catalogue
+durian,,mixed,out_of_catalogue
+ramen,,mixed,out_of_catalogue
+龙眼,,mixed,out_of_catalogue
+榴莲,,mixed,out_of_catalogue
+Sauerkraut,,mixed,out_of_catalogue
+Kohlrabi,,mixed,out_of_catalogue
+chicken soup,,en,unsupported_preparation
+apple juice,,en,unsupported_preparation
+rice cake,,en,unsupported_preparation
+banana bread,,en,unsupported_preparation
+salmon soup,,en,unsupported_preparation
+chocolate milk,,en,unsupported_preparation
+peanut oil,,en,unsupported_preparation
+fried tofu,,en,unsupported_preparation
+orange cake,,en,unsupported_preparation
+egg salad,,en,unsupported_preparation

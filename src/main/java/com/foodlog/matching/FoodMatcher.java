@@ -59,7 +59,15 @@ public class FoodMatcher {
         boolean nearTie = ranked.size() > 1
                 && best.score < 1.0
                 && best.score - ranked.get(1).score < TIE_MARGIN;
-        if (best.score >= autoThreshold && !nearTie) {
+        // A lone category word ("pork") must not select a more specific food ("pork lard").
+        // Exact catalogue aliases still work; single-token typos can still match single-token names.
+        List<String> queryTokens = FoodNameNormalizer.tokens(query);
+        boolean underspecified = queryTokens.size() == 1 && best.score < 1.0
+                && best.food.allNames().stream().noneMatch(name -> {
+                    List<String> tokens = FoodNameNormalizer.tokens(name);
+                    return tokens.size() == 1 && score(queryTokens, tokens) >= autoThreshold;
+                });
+        if (best.score >= autoThreshold && !nearTie && !underspecified) {
             return new MatchOutcome(MatchStatus.MATCHED, best.food, round(best.score), candidates);
         }
         return new MatchOutcome(MatchStatus.NEEDS_CONFIRMATION, null, round(best.score), candidates);

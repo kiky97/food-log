@@ -59,6 +59,17 @@ class FoodMatcherTest {
     }
 
     @Test
+    void singleCategoryWordDoesNotAutomaticallySelectASpecificPreparation() {
+        FoodItem lard = new FoodItem("lard", "Pork lard", null, null, List.of(), "Fat",
+                com.foodlog.domain.Nutrients.ZERO, Map.of());
+        MatchOutcome result = matcher.match("pork", List.of(lard));
+        assertThat(result.status()).isEqualTo(MatchStatus.NEEDS_CONFIRMATION);
+        assertThat(result.candidates()).extracting(c -> c.foodId()).contains("lard");
+        // An explicit catalogue alias is still allowed, preserving sample-catalogue behaviour.
+        assertThat(matcher.match("pork", foods).status()).isEqualTo(MatchStatus.MATCHED);
+    }
+
+    @Test
     void partialMatchAsksForConfirmationWithCandidates() {
         MatchOutcome out = matcher.match("chicken soup", foods);
         assertThat(out.status()).isEqualTo(MatchStatus.NEEDS_CONFIRMATION);

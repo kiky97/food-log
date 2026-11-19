@@ -1,0 +1,61 @@
+query,expected_id,language,category
+"Apple, fresh",CH-378,en,catalogue_name
+"Banana, raw",CH-381,en,catalogue_name
+"Avocado, fresh",CH-380,en,catalogue_name
+"Broccoli, raw",CH-351,en,catalogue_name
+"Carrot, raw",CH-355,en,catalogue_name
+"Chicken egg, whole, hard boiled",CH-1070,en,catalogue_name
+"Chicken, breast, without skin, raw",CH-22,en,catalogue_name
+Olive oil,CH-591,en,catalogue_name
+"Salmon, smoked",CH-193,en,catalogue_name
+"Tofu, silken (soft), plain",CH-13438,en,catalogue_name
+"Coffee, black, no sugar added",CH-994,en,catalogue_name
+"Cucumber, raw",CH-354,en,catalogue_name
+Orange juice,CH-576,en,catalogue_name
+"Orange, fresh",CH-405,en,catalogue_name
+Peanut butter,CH-751,en,catalogue_name
+Almond,CH-273,en,catalogue_name
+"Strawberry, fresh",CH-385,en,catalogue_name
+White bread,CH-823,en,catalogue_name
+"Rice polished, cooked in salted water (uniodised)",CH-1066,en,catalogue_name
+"Lentil, whole, cooked (without addition of fat and salt)",CH-1060,en,catalogue_name
+apple fresh,CH-378,en,variant
+bananna raw,CH-381,en,variant
+avocado fresh,CH-380,en,variant
+brocolli raw,CH-351,en,variant
+carrot raw,CH-355,en,variant
+hard boiled whole chicken egg,CH-1070,en,variant
+raw chicken breast without skin,CH-22,en,variant
+oil olive,CH-591,en,variant
+smoked salmon,CH-193,en,variant
+plain soft silken tofu,CH-13438,en,variant
+black coffee no sugar added,CH-994,en,variant
+cucumber raw,CH-354,en,variant
+juice orange,CH-576,en,variant
+fresh orange,CH-405,en,variant
+butter peanut,CH-751,en,variant
+almnod,CH-273,en,variant
+fresh strawberry,CH-385,en,variant
+bread white,CH-823,en,variant
+rice polished cooked in salted water uniodised,CH-1066,en,variant
+whole lentil cooked without addition of fat and salt,CH-1060,en,variant
+sparkling unicorn,,en,out_of_catalogue
+moonstone stew,,en,out_of_catalogue
+dragon scale tea,,en,out_of_catalogue
+xyzzy,,en,out_of_catalogue
+quantum noodles,,en,out_of_catalogue
+nebula broth,,en,out_of_catalogue
+galactic dust,,en,out_of_catalogue
+unobtainium,,en,out_of_catalogue
+asteroid jelly,,en,out_of_catalogue
+cosmic crystal,,en,out_of_catalogue
+rice,,en,underspecified
+salmon,,en,underspecified
+chicken,,en,underspecified
+beef,,en,underspecified
+pork,,en,underspecified
+milk,,en,underspecified
+yogurt,,en,underspecified
+potato,,en,underspecified
+bread,,en,underspecified
+cheese,,en,underspecified
